@@ -166,6 +166,15 @@
   .apply input::placeholder{color:#9098a8}
   .apply .apply-fine{display:block;margin-top:10px;color:var(--muted);font-size:13px;font-weight:600}
   @media(max-width:760px){.apply-grid{grid-template-columns:1fr}}
+  /* loud offer */
+  .offerbold{background:radial-gradient(900px 480px at 85% -10%,rgba(63,208,224,.45),transparent 60%),linear-gradient(135deg,#5740F1,#3A28C2);color:#fff}
+  .offerbold .eyebrow{color:var(--cyan)}
+  .offerbold>.wrap>h2{font-size:clamp(36px,5vw,60px);letter-spacing:-.03em}
+  .offerbold .lead{color:#eae7ff}
+  .offerbold .spot{box-shadow:0 22px 45px -26px rgba(0,0,0,.55)}
+  .offerbold .apply{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 30px 60px -25px rgba(0,0,0,.5);color:var(--ink)}
+  .offerbold .apply-fine{color:var(--muted)}
+  .offerbold .apply .btn-primary{font-size:18px;padding:17px 30px}
 
   /* ===== FAQ ===== */
   .faq{max-width:780px;margin:0 auto}
@@ -211,7 +220,6 @@
       <a href="#offer">Founding access</a>
     </nav>
     <div class="nav-cta">
-      <a href="#team" class="btn btn-outline">Book a call</a>
       <a href="#offer" class="btn btn-primary">Apply for a place</a>
       <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
     </div>
@@ -285,7 +293,7 @@
       <div>
         <span class="eyebrow">Plan a whole term</span>
         <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">A whole term, not a single lesson.</h2>
-        <p class="lead" style="margin-top:10px">In minutes, the AI plans a whole term for you — powered by your own materials, so every lesson lands complete <em>and</em> unmistakably yours. The speed and depth of AI, none of the generic.</p>
+        <p class="lead" style="margin-top:10px">Give it the topic. In minutes the AI builds the <strong>whole term</strong> — every lesson planned, every resource made, stretch and support baked in. Powered by your own materials, so it's fast, deep, and unmistakably yours.</p>
       </div>
       <span class="note">↓ click a week</span>
     </div>
@@ -302,9 +310,9 @@
         <h3 id="pk-title">Week 1 · Place value</h3>
         <p class="note" id="pk-sub">Year 5 Maths · built from your scheme</p>
         <div class="pk-list">
-          <div class="pk-item"><span class="b" style="background:#5740F1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg></span><div><b>Full lesson plan</b><small>Objectives, sequence, key questions</small></div></div>
-          <div class="pk-item"><span class="b" style="background:#22B8A6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span><div><b>Progression tasks</b><small>Stretch for pupils who race ahead</small></div></div>
-          <div class="pk-item"><span class="b" style="background:#FA602F"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span><div><b>Regression tasks</b><small>Support for pupils who need it</small></div></div>
+          <div class="pk-item"><span class="b" style="background:#5740F1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg></span><div><b>Full lesson plan</b><small id="pk-plan">Objectives, sequence, key questions</small></div></div>
+          <div class="pk-item"><span class="b" style="background:#22B8A6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span><div><b>Progression tasks</b><small id="pk-prog">Stretch for pupils who race ahead</small></div></div>
+          <div class="pk-item"><span class="b" style="background:#FA602F"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span><div><b>Regression tasks</b><small id="pk-reg">Support for pupils who need it</small></div></div>
         </div>
       </div>
       <div class="pk-content">
@@ -379,7 +387,7 @@
         <li>New and non-specialist teachers level up instantly.</li>
         <li>Whole-team consistency, without flattening anyone's style.</li>
       </ul>
-      <a href="#offer" class="btn btn-outline" style="margin-top:22px">Book a discovery call</a>
+      <a href="#offer" class="btn btn-outline" style="margin-top:22px">Apply for a place</a>
     </div>
     <div class="ph" style="min-height:320px">Team / shared-AI visual<br><span class="note">to come in the image run</span></div>
   </div>
@@ -395,7 +403,7 @@
 </section>
 
 <!-- ===== S8: OFFER ===== -->
-<section class="tint cohort" id="offer">
+<section class="cohort offerbold" id="offer">
   <div class="wrap">
     <span class="eyebrow">Founding access · second cohort</span>
     <h2 style="margin-top:12px">We're not chasing mass sign-ups.</h2>
@@ -481,18 +489,21 @@
 
   // term weeks
   const weekData=[
-    {t:"Week 1 · Place value",s:"Year 5 Maths · built from your scheme"},
-    {t:"Week 2 · Rounding",s:"Year 5 Maths · built from your scheme"},
-    {t:"Week 3 · Division",s:"Year 5 Maths · built from your scheme"},
-    {t:"Week 4 · Fractions",s:"Year 5 Maths · built from your scheme"},
-    {t:"Week 5 · Add & subtract",s:"Year 5 Maths · built from your scheme"},
-    {t:"Week 6 · Review & assess",s:"Year 5 Maths · built from your scheme"}
+    {t:"Week 1 · Place value",s:"Year 5 Maths · built from your scheme",plan:"Read, write & compare numbers to 1,000,000",prog:"Negative numbers & powers of 10",reg:"Recap hundreds, tens & ones with base-10"},
+    {t:"Week 2 · Rounding",s:"Year 5 Maths · built from your scheme",plan:"Round to the nearest 10, 100 and 1,000",prog:"Round decimals to two places",reg:"Number lines to anchor the nearest 10"},
+    {t:"Week 3 · Division",s:"Year 5 Maths · built from your scheme",plan:"Short division with remainders",prog:"4-digit ÷ 1-digit, interpret remainders",reg:"Sharing with counters & arrays"},
+    {t:"Week 4 · Fractions",s:"Year 5 Maths · built from your scheme",plan:"Compare & order fractions",prog:"Add fractions with different denominators",reg:"Fraction walls & equivalence"},
+    {t:"Week 5 · Add & subtract",s:"Year 5 Maths · built from your scheme",plan:"Column methods with exchanging",prog:"Multi-step word problems",reg:"Place-value counters for exchange"},
+    {t:"Week 6 · Review & assess",s:"Year 5 Maths · built from your scheme",plan:"Retrieval, gap check & assessment",prog:"Reasoning & problem-solving extensions",reg:"Targeted recap on flagged topics"}
   ];
   document.querySelectorAll('.week').forEach(w=>w.addEventListener('click',()=>{
     document.querySelectorAll('.week').forEach(x=>x.classList.remove('active'));
     w.classList.add('active');const d=weekData[+w.dataset.w];
     document.getElementById('pk-title').textContent=d.t;
     document.getElementById('pk-sub').textContent=d.s;
+    document.getElementById('pk-plan').textContent=d.plan;
+    document.getElementById('pk-prog').textContent=d.prog;
+    document.getElementById('pk-reg').textContent=d.reg;
   }));
 
   // dynamic toggle
