@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curriculum OS">
+  <defs>
+    <linearGradient id="cos" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5740F1"/>
+      <stop offset="1" stop-color="#3FD0E0"/>
+    </linearGradient>
+  </defs>
+  <path d="M44 12.5A26 26 0 1 0 54 33" fill="none" stroke="url(#cos)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M32 25c-3.6-2.5-8-3-13-1.9a1.4 1.4 0 0 0-1 1.4V40a1.1 1.1 0 0 0 1.4 1.05C24 40 28 40.4 32 43Z" fill="url(#cos)"/>
+  <path d="M32 25c3.6-2.5 8-3 13-1.9a1.4 1.4 0 0 1 1 1.4V40a1.1 1.1 0 0 1-1.4 1.05C40 40 36 40.4 32 43Z" fill="url(#cos)" opacity=".5"/>
+  <circle cx="50" cy="14" r="5" fill="#FA602F"/>
+</svg>

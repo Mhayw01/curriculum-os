@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curriculum OS">
+  <rect width="64" height="64" rx="14" fill="#0E1116"/>
+  <defs>
+    <linearGradient id="fav" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7b67ff"/>
+      <stop offset="1" stop-color="#3FD0E0"/>
+    </linearGradient>
+  </defs>
+  <path d="M44 12.5A26 26 0 1 0 54 33" fill="none" stroke="url(#fav)" stroke-width="6" stroke-linecap="round" transform="scale(.82) translate(7 7)"/>
+  <path d="M32 25c-3.6-2.5-8-3-13-1.9a1.4 1.4 0 0 0-1 1.4V40a1.1 1.1 0 0 0 1.4 1.05C24 40 28 40.4 32 43Z" fill="url(#fav)" transform="scale(.82) translate(7 7)"/>
+  <path d="M32 25c3.6-2.5 8-3 13-1.9a1.4 1.4 0 0 1 1 1.4V40a1.1 1.1 0 0 1-1.4 1.05C40 40 36 40.4 32 43Z" fill="url(#fav)" opacity=".5" transform="scale(.82) translate(7 7)"/>
+  <circle cx="48" cy="18" r="4.5" fill="#FA602F"/>
+</svg>

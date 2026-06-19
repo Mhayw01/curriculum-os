@@ -1,0 +1,27 @@
+# Netlify configuration — Curriculum OS landing page
+# Static site: nothing to build, just publish the repo root.
+
+[build]
+  publish = "."
+  command = ""
+
+# Send www → apex (edit the domain once it's set in Netlify)
+# [[redirects]]
+#   from = "https://www.curriculum-os.com/*"
+#   to = "https://curriculum-os.com/:splat"
+#   status = 301
+#   force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Long cache for static assets
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

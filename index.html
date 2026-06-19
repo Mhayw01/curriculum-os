@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Curriculum OS — Your curriculum. Your voice. Your AI.</title>
+<meta name="description" content="The curriculum operating system that learns your way of teaching. Give it your own materials and it plans whole terms, builds every resource, adapts as you teach, and records why." />
+<meta name="theme-color" content="#5740F1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --purple:#5740F1; --purple-700:#3A28C2; --purple-50:#EEEBFF; --purple-soft:#f3f1ff;
+    --cyan:#3FD0E0; --mint:#B8DED5; --orange:#FA602F;
+    --ink:#0E1116; --muted:#5A6072; --line:#E7E7EE;
+    --paper:#FFFFFF; --grey:#F5F5F9;
+    --maxw:1140px; --shadow:0 18px 50px -22px rgba(24,18,80,.32); --radius:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Manrope",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.08;letter-spacing:-0.02em}
+  a{color:inherit;text-decoration:none}
+  section{padding:92px 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple)}
+  .lead{font-size:18px;color:var(--muted);max-width:620px}
+  .ph{border:2px dashed #c9c4f0;border-radius:16px;background:repeating-linear-gradient(45deg,#faf9ff,#faf9ff 12px,#f3f1ff 12px,#f3f1ff 24px);display:flex;align-items:center;justify-content:center;text-align:center;color:#8b82c9;font-weight:700;font-size:14px;padding:20px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;font-family:inherit}
+  .btn-primary{background:var(--orange);color:#fff;box-shadow:0 12px 26px -10px rgba(250,96,47,.7)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{transform:translateY(-2px)}
+  .btn-outline{border-color:var(--purple);color:var(--purple)}.btn-outline:hover{background:var(--purple-50)}
+  .btn-light{background:#fff;color:var(--ink)}.btn-light:hover{transform:translateY(-2px)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px}
+  .brand .mark{width:32px;height:32px;flex:none}
+  .brand .os{color:var(--purple)}
+  .nav-links{display:flex;align-items:center;gap:26px;font-weight:600;font-size:15px}
+  .nav-links a{color:#33384a}.nav-links a:hover{color:var(--purple)}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .menu-btn{display:none;background:none;border:0;font-size:26px;cursor:pointer}
+
+  /* tag for placeholder note */
+  .note{font-size:12px;font-weight:700;color:#9a93cf;letter-spacing:.04em;text-transform:uppercase}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;overflow:hidden;background:radial-gradient(1000px 560px at 80% -10%,rgba(63,208,224,.5),transparent 60%),radial-gradient(800px 560px at 0% 8%,rgba(87,64,241,.18),transparent 55%),linear-gradient(180deg,#fff,#F3F1FF)}
+  .hero-inner{padding:70px 0 86px;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-weight:700;font-size:13px;color:#2b2150;box-shadow:var(--shadow)}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+  .hero h1{font-size:clamp(40px,5.6vw,66px);margin:20px 0 12px;letter-spacing:-.03em}
+  .hero .tag{font-size:clamp(18px,2.1vw,23px);color:var(--purple-700);font-weight:700;font-family:"Space Grotesk"}
+  .hero p.body{margin-top:16px;font-size:17px;color:#3c4254;max-width:520px}
+  .hero .hl{color:var(--ink);font-weight:800}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:26px}
+  .micro{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;font-weight:700;font-size:14px;color:#39304f}
+  .micro span{display:flex;align-items:center;gap:7px}
+  .hero-ph{min-height:380px}
+  .hero-shot{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:4/3}
+  .hero-shot img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-shot .credit{position:absolute;bottom:8px;right:10px;font-size:11px;color:#fff;background:rgba(0,0,0,.45);padding:3px 8px;border-radius:6px;font-weight:600}
+  .hero-shot .float{position:absolute;left:16px;bottom:16px;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:12px 14px;display:flex;align-items:center;gap:10px;max-width:78%}
+  .hero-shot .float .fi{width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;background:var(--purple);color:#fff}
+  .hero-shot .float b{font-size:14px;display:block}.hero-shot .float small{color:var(--muted);font-size:12px}
+
+  /* ===== S2: core difference — 3 step flow ===== */
+  .center{text-align:center;margin-inline:auto}
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;position:relative}
+  .stepc{padding:30px 24px;text-align:center;position:relative;transition:transform .2s}
+  .stepc:hover{transform:translateY(-6px)}
+  .stepc:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:54px;font-size:26px;color:var(--cyan);font-weight:800}
+  .stepc .circle{width:64px;height:64px;border-radius:18px;margin:0 auto 16px;display:grid;place-items:center;background:var(--purple-50);color:var(--purple)}
+  .ic{width:24px;height:24px;display:inline-block;vertical-align:middle}
+  .circle .ic{width:28px;height:28px}
+  .pk-item .b .ic{width:18px;height:18px}
+  .pk-tags span{display:inline-flex;align-items:center;gap:7px}
+  .pk-tags .ic{width:16px;height:16px;color:var(--purple)}
+  .doc-row .ic{width:18px;height:18px;flex:none}
+  .stepc h3{font-size:20px;margin-bottom:8px}
+  .stepc p{color:var(--muted);font-size:15px}
+  .materials{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-weight:700;font-size:13px;color:#43484f}
+  .closing{text-align:center;margin-top:34px;font-family:"Space Grotesk";font-weight:700;font-size:22px;color:var(--purple)}
+
+  /* ===== S3: plan a whole term — interactive term strip ===== */
+  .tint{background:var(--grey)}
+  .term-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+  .weeks{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+  .week{flex:1;min-width:120px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px;cursor:pointer;transition:.18s;text-align:left}
+  .week:hover{border-color:var(--purple)}
+  .week.active{background:var(--purple);color:#fff;border-color:var(--purple);box-shadow:var(--shadow)}
+  .week small{font-weight:700;opacity:.7;font-size:12px;text-transform:uppercase}
+  .week b{display:block;font-size:15px;margin-top:3px}
+  .package{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px}
+  .package h3{font-size:22px;margin-bottom:6px}
+  .pk-list{display:grid;gap:12px;margin-top:16px}
+  .pk-item{display:flex;gap:12px;align-items:flex-start}
+  .pk-item .b{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;color:#fff;font-size:15px}
+  .pk-item b{display:block}.pk-item small{color:var(--muted)}
+  .pk-content{background:var(--purple-soft);border-radius:16px;padding:20px}
+  .pk-content .t{font-weight:800;margin-bottom:12px}
+  .pk-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .pk-tags span{background:#fff;border:1px solid #ded8ff;border-radius:10px;padding:8px 12px;font-weight:700;font-size:13px}
+
+  /* ===== S4: dynamic — toggle ===== */
+  .dark{background:var(--ink);color:#fff}
+  .dark .lead{color:#b9bdcc}.dark .eyebrow{color:var(--cyan)}
+  .toggle{display:inline-flex;background:#1b202b;border:1px solid #2a3040;border-radius:999px;padding:5px;margin:26px 0 30px}
+  .toggle button{border:0;background:none;color:#aeb3c4;font-weight:700;padding:11px 22px;border-radius:999px;cursor:pointer;font-family:inherit;font-size:15px}
+  .toggle button.on{background:var(--purple);color:#fff}
+  .panel{display:none;background:#161A24;border:1px solid #262b39;border-radius:var(--radius);padding:28px;max-width:760px}
+  .panel.show{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .panel h3{font-size:21px;margin-bottom:10px}.panel p{color:#aeb3c4}
+  .doc-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px dashed #2a3040;color:#cfd3df}
+  .doc-row:last-child{border:0}
+  .tagm{margin-left:auto;font-size:12px;font-weight:800;padding:5px 10px;border-radius:8px}
+
+  /* ===== S5: remembers why — decision log timeline ===== */
+  .logwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
+  .log{border-left:2px solid var(--line);padding-left:26px;display:grid;gap:22px}
+  .entry{position:relative}
+  .entry::before{content:"";position:absolute;left:-34px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 4px var(--purple-50)}
+  .entry .when{font-size:12px;font-weight:800;text-transform:uppercase;color:var(--muted);letter-spacing:.05em}
+  .entry .what{font-weight:800;margin:3px 0 4px}
+  .entry .why{color:var(--muted);font-size:15px}
+  .entry .why b{color:var(--ink)}
+
+  /* ===== S6: team — hub diagram ===== */
+  .hub{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .hubviz{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center}
+  .person{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 10px;font-weight:700;font-size:13px;box-shadow:var(--shadow)}
+  .person .av{width:40px;height:40px;border-radius:50%;margin:0 auto 8px;display:grid;place-items:center;color:#fff;font-size:18px}
+  .person small{display:block;color:var(--muted);font-weight:600}
+  .hub-center{grid-column:1/-1;background:linear-gradient(120deg,var(--purple),#7b67ff);color:#fff;border-radius:16px;padding:18px;font-weight:800}
+  .team-points{list-style:none;margin:18px 0 0;display:grid;gap:12px}
+  .team-points li{position:relative;padding-left:30px;font-weight:600;color:#2c3142}
+  .team-points li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border-radius:5px;background:var(--purple-50);box-shadow:inset 0 0 0 2px var(--purple)}
+
+  /* ===== S7: proof ===== */
+  .proof{background:linear-gradient(120deg,var(--purple),#6f5bff);color:#fff;text-align:center}
+  .proof .big{font-family:"Space Grotesk";font-size:clamp(58px,10vw,120px);font-weight:700;line-height:1}
+  .proof p{font-weight:700;font-size:19px;opacity:.92;margin-top:6px}
+
+  /* ===== S8: offer ===== */
+  .cohort h2{font-size:clamp(30px,3.8vw,46px);max-width:720px}
+  .countdown{display:flex;gap:12px;margin:26px 0 8px}
+  .cd{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 6px;min-width:74px;text-align:center;box-shadow:var(--shadow)}
+  .cd b{font-size:30px;font-family:"Space Grotesk";display:block;line-height:1}
+  .cd small{color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase}
+  .spots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .spot{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center}
+  .spot .num{font-family:"Space Grotesk";font-size:46px;font-weight:700;color:var(--purple);line-height:1}
+  .spot .lab{font-weight:800;margin-top:6px}
+  .spot small{color:var(--muted);font-weight:600;font-size:13px;display:block;margin-top:4px}
+  .offer-cta{margin-top:30px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .apply{margin-top:30px;max-width:760px}
+  .apply-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+  .apply input,.apply select{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:15px;font-family:inherit}
+  .apply input::placeholder{color:#9098a8}
+  .apply .apply-fine{display:block;margin-top:10px;color:var(--muted);font-size:13px;font-weight:600}
+  @media(max-width:760px){.apply-grid{grid-template-columns:1fr}}
+
+  /* ===== FAQ ===== */
+  .faq{max-width:780px;margin:0 auto}
+  .qa{border-bottom:1px solid var(--line)}
+  .qa button{width:100%;text-align:left;background:none;border:0;padding:22px 0;font-size:18px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;gap:18px;align-items:center;font-family:"Space Grotesk"}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .3s}
+  .qa .ans p{padding-bottom:22px;color:var(--muted)}
+  .qa.open .ans{max-height:260px}
+  .qa .pm{color:var(--purple);font-size:26px;flex:none;transition:transform .25s}.qa.open .pm{transform:rotate(45deg)}
+
+  /* ===== final + footer ===== */
+  .final{background:radial-gradient(800px 400px at 80% 0%,rgba(63,208,224,.5),transparent 60%),linear-gradient(120deg,var(--purple),#3A28C2);color:#fff;text-align:center}
+  .final h2{font-size:clamp(32px,4.4vw,54px);max-width:740px;margin:0 auto 12px}
+  .final p{color:#e6e3ff;max-width:540px;margin:0 auto 26px;font-size:18px}
+  footer{background:var(--ink);color:#aeb3c4;padding:48px 0 40px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap;font-size:14px;font-weight:600}
+  .copy{margin-top:22px;font-size:13px;color:#71778a}
+
+  @media(max-width:900px){
+    section{padding:64px 0}
+    .nav-links{display:none}.menu-btn{display:block}
+    .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line)}
+    .hero-inner,.package,.logwrap,.hub{grid-template-columns:1fr}
+    .flow,.spots,.hubviz{grid-template-columns:1fr}
+    .stepc:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}
+    .nav-cta .btn-outline{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="lgh" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5740F1"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs><path d="M44 12.5A26 26 0 1 0 54 33" fill="none" stroke="url(#lgh)" stroke-width="6" stroke-linecap="round"/><path d="M32 25c-3.6-2.5-8-3-13-1.9a1.4 1.4 0 0 0-1 1.4V40a1.1 1.1 0 0 0 1.4 1.05C24 40 28 40.4 32 43Z" fill="url(#lgh)"/><path d="M32 25c3.6-2.5 8-3 13-1.9a1.4 1.4 0 0 1 1 1.4V40a1.1 1.1 0 0 1-1.4 1.05C40 40 36 40.4 32 43Z" fill="url(#lgh)" opacity=".5"/><circle cx="50" cy="14" r="5" fill="#FA602F"/></svg>
+      <span>Curriculum<span class="os"> OS</span></span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#difference">How it works</a>
+      <a href="#term">What you get</a>
+      <a href="#team">For schools</a>
+      <a href="#offer">Founding access</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#team" class="btn btn-outline">Book a call</a>
+      <a href="#offer" class="btn btn-primary">Apply for a place</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<a id="top"></a>
+<section class="hero" style="padding-top:0">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="pill"><span class="dot"></span> 250+ teachers already on board · second cohort now open</span>
+      <h1>Your curriculum.<br>Your voice. Your AI.</h1>
+      <div class="tag">The curriculum operating system that learns your way of teaching.</div>
+      <p class="body">Give it your <span class="hl">own guidance, schemes and resources</span>, and Curriculum OS plans whole terms and builds every lesson and resource for you — in your style, not a generic one.</p>
+      <div class="hero-cta">
+        <a href="#offer" class="btn btn-primary">Apply for a place →</a>
+        <a href="#difference" class="btn btn-dark">See how it works</a>
+      </div>
+      <div class="micro">
+        <span>✓ Built on your materials</span>
+        <span>✓ Plans a whole term</span>
+        <span>✓ Closes 19 July</span>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <img src="https://images.pexels.com/photos/8423123/pexels-photo-8423123.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A teacher planning at her laptop in a bright, modern classroom" loading="lazy" />
+      <div class="float">
+        <span class="fi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.4 2.1L15.5 12l-2.1 1.4L12 15.5l-1.4-2.1L8.5 12l2.1-1.4z"/></svg></span>
+        <div><b>Planning a whole term</b><small>built from her own materials</small></div>
+      </div>
+      <span class="credit">Photo: Pexels (placeholder)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S2: CORE DIFFERENCE ===== -->
+<section id="difference">
+  <div class="wrap">
+    <div class="center" style="max-width:720px">
+      <span class="eyebrow">The difference</span>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Powerful AI — powered by your materials.</h2>
+      <p class="lead center">Generic AI is powerful, but it doesn't know your pupils, your standards or your way of teaching. Curriculum OS is just as powerful — and your own guidance, schemes and resources <strong>drive</strong> it. So everything it creates has the full force of AI behind it, aimed entirely at how <strong>you</strong> teach.</p>
+    </div>
+    <div class="flow">
+      <div class="stepc">
+        <div class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 15v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3"/></svg></div>
+        <h3>Add your materials</h3>
+        <p>Your guidance, schemes of work, skills frameworks and best resources.</p>
+        <div class="materials"><span class="chip">Schemes</span><span class="chip">Policies</span><span class="chip">Resources</span></div>
+      </div>
+      <div class="stepc">
+        <div class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>They power your AI</h3>
+        <p>Your knowledge becomes its engine — not a generic model.</p>
+      </div>
+      <div class="stepc">
+        <div class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.4 2.1L15.5 12l-2.1 1.4L12 15.5l-1.4-2.1L8.5 12l2.1-1.4z"/></svg></div>
+        <h3>It builds your curriculum, in your voice</h3>
+        <p>Full terms, lessons and resources — to your standards.</p>
+      </div>
+    </div>
+    <p class="closing">The more you feed it, the more powerful — and the more it's yours.</p>
+  </div>
+</section>
+
+<!-- ===== S3: PLAN A WHOLE TERM ===== -->
+<section class="tint" id="term">
+  <div class="wrap">
+    <div class="term-head">
+      <div>
+        <span class="eyebrow">Plan a whole term</span>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">A whole term, not a single lesson.</h2>
+        <p class="lead" style="margin-top:10px">In minutes, the AI plans a whole term for you — powered by your own materials, so every lesson lands complete <em>and</em> unmistakably yours. The speed and depth of AI, none of the generic.</p>
+      </div>
+      <span class="note">↓ click a week</span>
+    </div>
+    <div class="weeks" id="weeks">
+      <button class="week active" data-w="0"><small>Week 1</small><b>Place value</b></button>
+      <button class="week" data-w="1"><small>Week 2</small><b>Rounding</b></button>
+      <button class="week" data-w="2"><small>Week 3</small><b>Division</b></button>
+      <button class="week" data-w="3"><small>Week 4</small><b>Fractions</b></button>
+      <button class="week" data-w="4"><small>Week 5</small><b>Add &amp; subtract</b></button>
+      <button class="week" data-w="5"><small>Week 6</small><b>Review</b></button>
+    </div>
+    <div class="package">
+      <div>
+        <h3 id="pk-title">Week 1 · Place value</h3>
+        <p class="note" id="pk-sub">Year 5 Maths · built from your scheme</p>
+        <div class="pk-list">
+          <div class="pk-item"><span class="b" style="background:#5740F1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg></span><div><b>Full lesson plan</b><small>Objectives, sequence, key questions</small></div></div>
+          <div class="pk-item"><span class="b" style="background:#22B8A6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span><div><b>Progression tasks</b><small>Stretch for pupils who race ahead</small></div></div>
+          <div class="pk-item"><span class="b" style="background:#FA602F"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span><div><b>Regression tasks</b><small>Support for pupils who need it</small></div></div>
+        </div>
+      </div>
+      <div class="pk-content">
+        <div class="t">The content to teach it</div>
+        <div class="pk-tags">
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h6M8 17h4"/></svg> Worksheets</span>
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l7 16 2-6 6-2z"/></svg> Interactive lesson</span>
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 12h2M8 11v2M16 11.5h.01M18.5 13h.01"/></svg> Game</span>
+          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg> Video</span>
+        </div>
+        <p style="margin-top:14px;color:var(--muted);font-size:14px">Generated in minutes — all fully editable by you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S4: DYNAMIC ===== -->
+<section class="dark" id="dynamic">
+  <div class="wrap">
+    <span class="eyebrow">Then it gets dynamic</span>
+    <h2 style="font-size:clamp(28px,3.8vw,46px);margin:12px 0 8px;max-width:760px">Your plan isn't a document. It's alive.</h2>
+    <p class="lead">Deliver a lesson, tell Curriculum OS how it went, and the plan updates itself — the next lesson adapts to your feedback.</p>
+    <div class="toggle" role="tablist">
+      <button class="on" data-p="static">A static plan</button>
+      <button data-p="living">A living plan</button>
+    </div>
+    <div class="panel show" id="p-static">
+      <h3>The old way</h3>
+      <p>You write a term plan in the summer. By week three, the class has moved on — but the document hasn't. It sits in a drawer, out of date.</p>
+      <div style="margin-top:16px">
+        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#cfd3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg> Term plan v1 <span class="tagm" style="background:#3a2230;color:#ff8d8d">out of date</span></div>
+        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#cfd3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg> …never opened again <span class="tagm" style="background:#2a3040;color:#9aa0b3">static</span></div>
+      </div>
+    </div>
+    <div class="panel" id="p-living">
+      <h3>With Curriculum OS</h3>
+      <p>You teach, you reflect, and tomorrow's lesson rebuilds itself around what actually happened — automatically.</p>
+      <div style="margin-top:16px">
+        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#5be0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> “Remainders were tricky — needed concrete examples” <span class="tagm" style="background:#10261f;color:#5be0a6">your feedback</span></div>
+        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#b3a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 0 1-4 0v-.1A1.6 1.6 0 0 0 7 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3 14.1H3a2 2 0 0 1 0-4h.1A1.6 1.6 0 0 0 4.6 8"/></svg> The AI rebuilds the next lesson — counters + scaffolded worksheet <span class="tagm" style="background:#1c1840;color:#b3a6ff">updated</span></div>
+        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#5be0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ready when you log in tomorrow <span class="tagm" style="background:#10261f;color:#5be0a6">live</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S5: REMEMBERS WHY ===== -->
+<section id="why">
+  <div class="wrap logwrap">
+    <div>
+      <span class="eyebrow">It remembers why</span>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Not just what you taught — why you taught it that way.</h2>
+      <p class="lead">Curriculum OS records the decisions you make in real time and the reasons behind them. You build up something teachers never usually have: a record of your reasoning over time — ready when you need to show <em>why</em> you did what you did, and to see what actually worked.</p>
+    </div>
+    <div class="log">
+      <div class="entry"><div class="when">Tue · Period 3</div><div class="what">Re-taught division as sharing</div><div class="why"><b>Why:</b> mini-whiteboard check showed 60% unsure — went back before moving on.</div></div>
+      <div class="entry"><div class="when">Wed · Period 1</div><div class="what">Grouped by mixed ability</div><div class="why"><b>Why:</b> peer explanation worked well last unit; wanted stronger pupils to model.</div></div>
+      <div class="entry"><div class="when">Thu · Period 4</div><div class="what">Swapped worksheet for a game</div><div class="why"><b>Why:</b> low energy after assembly — needed engagement to hold focus.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S6: TEAM ===== -->
+<section class="tint" id="team">
+  <div class="wrap hub">
+    <div>
+      <span class="eyebrow">Stronger with your team</span>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Stronger with your team.</h2>
+      <p class="lead">When your department or school adds its materials, they power one shared AI that every teacher plans with. You get the best of the whole team's practice — in your own voice. A new or non-specialist teacher plans like your most experienced one, from day one.</p>
+      <ul class="team-points">
+        <li>Plan with the best of everyone's practice, not just your own.</li>
+        <li>New and non-specialist teachers level up instantly.</li>
+        <li>Whole-team consistency, without flattening anyone's style.</li>
+      </ul>
+      <a href="#offer" class="btn btn-outline" style="margin-top:22px">Book a discovery call</a>
+    </div>
+    <div class="ph" style="min-height:320px">Team / shared-AI visual<br><span class="note">to come in the image run</span></div>
+  </div>
+</section>
+
+<!-- ===== S7: PROOF ===== -->
+<section class="proof">
+  <div class="wrap">
+    <div class="big">250+</div>
+    <p>teachers already building with Curriculum OS in our beta</p>
+    <p class="note" style="color:#e3deff;margin-top:10px">[ teacher quotes / logos to add ]</p>
+  </div>
+</section>
+
+<!-- ===== S8: OFFER ===== -->
+<section class="tint cohort" id="offer">
+  <div class="wrap">
+    <span class="eyebrow">Founding access · second cohort</span>
+    <h2 style="margin-top:12px">We're not chasing mass sign-ups.</h2>
+    <p class="lead" style="margin-top:14px">Your AI is only as good as the materials behind it — so we take a small cohort and build each one with you, hands-on. When these places are gone, they're gone.</p>
+    <div class="countdown" id="countdown">
+      <div class="cd"><b id="cd-d">--</b><small>days</small></div>
+      <div class="cd"><b id="cd-h">--</b><small>hrs</small></div>
+      <div class="cd"><b id="cd-m">--</b><small>min</small></div>
+      <div class="cd"><b id="cd-s">--</b><small>sec</small></div>
+    </div>
+    <p style="font-weight:700;color:var(--muted);font-size:14px">Applications close <strong style="color:var(--ink)">19 July</strong>.</p>
+    <div class="spots">
+      <div class="spot"><div class="num">150</div><div class="lab">Teacher places</div><small>Individual founding members</small></div>
+      <div class="spot"><div class="num">10</div><div class="lab">School accounts</div><small>Whole-school knowledge</small></div>
+      <div class="spot"><div class="num">2</div><div class="lab">Trusts / councils</div><small>Multi-school rollouts</small></div>
+    </div>
+    <form class="apply" name="founding-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+      <input type="hidden" name="form-name" value="founding-access" />
+      <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
+      <div class="apply-grid">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Work email" required />
+        <select name="applying-as" required>
+          <option value="" disabled selected>I'm applying as…</option>
+          <option>An individual teacher</option>
+          <option>A school</option>
+          <option>A trust / council</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit">Apply for a place →</button>
+      <span class="apply-fine">No payment now. We review applications and onboard in order.</span>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="center" style="max-width:680px;margin-bottom:34px">
+      <span class="eyebrow">Questions</span>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">Good questions, straight answers.</h2>
+    </div>
+    <div class="faq">
+      <div class="qa"><button>What actually makes it different? <span class="pm">+</span></button><div class="ans"><p>It's powerful AI, powered by your own materials. Everything it creates is driven by your guidance, schemes and resources — so you get the full force of AI, planning the way you teach, not generic answers.</p></div></div>
+      <div class="qa"><button>Do I stay in control of the content? <span class="pm">+</span></button><div class="ans"><p>Always. Every plan, worksheet, video, interactive lesson and game is fully editable by you. Curriculum OS drafts; you decide.</p></div></div>
+      <div class="qa"><button>Is my material private? <span class="pm">+</span></button><div class="ans"><p>Your materials power your account only — never pooled or shared with other users. We'll walk you through the full detail during onboarding. <span class="note">[confirm exact wording with you]</span></p></div></div>
+      <div class="qa"><button>Who is the second cohort for? <span class="pm">+</span></button><div class="ans"><p>Individual teachers, schools, and trusts/councils. 250+ teachers are already using it in beta — this cohort opens 150 teacher places, 10 schools and 2 trusts before 19 July.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="wrap">
+    <h2>Build the AI that teaches the way you do.</h2>
+    <p>Founding places close 19 July. Join 250+ teachers already building with Curriculum OS.</p>
+    <a href="#offer" class="btn btn-light">Apply for a place →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#top" class="brand"><svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="lgf" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7b67ff"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs><path d="M44 12.5A26 26 0 1 0 54 33" fill="none" stroke="url(#lgf)" stroke-width="6" stroke-linecap="round"/><path d="M32 25c-3.6-2.5-8-3-13-1.9a1.4 1.4 0 0 0-1 1.4V40a1.1 1.1 0 0 0 1.4 1.05C24 40 28 40.4 32 43Z" fill="url(#lgf)"/><path d="M32 25c3.6-2.5 8-3 13-1.9a1.4 1.4 0 0 1 1 1.4V40a1.1 1.1 0 0 1-1.4 1.05C40 40 36 40.4 32 43Z" fill="url(#lgf)" opacity=".5"/><circle cx="50" cy="14" r="5" fill="#FA602F"/></svg><span style="color:#fff">Curriculum<span style="color:#9b8cff"> OS</span></span></a>
+      <nav class="foot-links">
+        <a href="#difference">How it works</a><a href="#term">What you get</a><a href="#team">For schools</a><a href="#offer">Founding access</a><a href="mailto:michael@bobldobl.com">Contact</a>
+      </nav>
+    </div>
+    <p class="copy">© <span id="yr"></span> Curriculum OS. The curriculum operating system that learns your way of teaching.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const mb=document.getElementById('menuBtn'),nl=document.getElementById('navlinks');
+  mb.addEventListener('click',()=>nl.classList.toggle('open'));
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+
+  // FAQ
+  document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
+    const qa=b.parentElement;document.querySelectorAll('.qa').forEach(x=>{if(x!==qa)x.classList.remove('open')});qa.classList.toggle('open');
+  }));
+
+  // term weeks
+  const weekData=[
+    {t:"Week 1 · Place value",s:"Year 5 Maths · built from your scheme"},
+    {t:"Week 2 · Rounding",s:"Year 5 Maths · built from your scheme"},
+    {t:"Week 3 · Division",s:"Year 5 Maths · built from your scheme"},
+    {t:"Week 4 · Fractions",s:"Year 5 Maths · built from your scheme"},
+    {t:"Week 5 · Add & subtract",s:"Year 5 Maths · built from your scheme"},
+    {t:"Week 6 · Review & assess",s:"Year 5 Maths · built from your scheme"}
+  ];
+  document.querySelectorAll('.week').forEach(w=>w.addEventListener('click',()=>{
+    document.querySelectorAll('.week').forEach(x=>x.classList.remove('active'));
+    w.classList.add('active');const d=weekData[+w.dataset.w];
+    document.getElementById('pk-title').textContent=d.t;
+    document.getElementById('pk-sub').textContent=d.s;
+  }));
+
+  // dynamic toggle
+  document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.toggle button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+    document.getElementById('p-'+b.dataset.p).classList.add('show');
+  }));
+
+  // countdown
+  (function(){
+    const now=new Date();let y=now.getFullYear();
+    let t=new Date(y,6,19,23,59,59);if(t<now)t=new Date(y+1,6,19,23,59,59);
+    const e={d:'cd-d',h:'cd-h',m:'cd-m',s:'cd-s'};
+    function tick(){const diff=Math.max(0,t-new Date());
+      document.getElementById(e.d).textContent=Math.floor(diff/864e5);
+      document.getElementById(e.h).textContent=String(Math.floor(diff%864e5/36e5)).padStart(2,'0');
+      document.getElementById(e.m).textContent=String(Math.floor(diff%36e5/6e4)).padStart(2,'0');
+      document.getElementById(e.s).textContent=String(Math.floor(diff%6e4/1e3)).padStart(2,'0');}
+    tick();setInterval(tick,1000);
+  })();
+</script>
+</body>
+</html>
