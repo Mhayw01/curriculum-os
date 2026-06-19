@@ -152,7 +152,7 @@
   .cohort h2{font-size:clamp(30px,3.8vw,46px);max-width:720px}
   .countdown{display:flex;gap:12px;margin:26px 0 8px}
   .cd{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 6px;min-width:74px;text-align:center;box-shadow:var(--shadow)}
-  .cd b{font-size:30px;font-family:"Space Grotesk";display:block;line-height:1}
+  .cd b{font-size:30px;font-family:"Space Grotesk";display:block;line-height:1;color:var(--purple)}
   .cd small{color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase}
   .spots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
   .spot{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center}
@@ -436,7 +436,9 @@
       </ul>
       <a href="#offer" class="btn btn-outline" style="margin-top:22px">Apply for a place</a>
     </div>
-    <div class="ph" style="min-height:320px">Team / shared-AI visual<br><span class="note">to come in the image run</span></div>
+    <div class="hero-shot" style="aspect-ratio:4/3">
+      <img src="https://images.pexels.com/photos/5940836/pexels-photo-5940836.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A group of teachers collaborating together in a bright, modern library" loading="lazy" />
+    </div>
   </div>
 </section>
 
@@ -572,6 +574,7 @@
       document.getElementById(e.m).textContent=String(Math.floor(diff%36e5/6e4)).padStart(2,'0');
       document.getElementById(e.s).textContent=String(Math.floor(diff%6e4/1e3)).padStart(2,'0');}
     tick();setInterval(tick,1000);
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick();});
   })();
 </script>
 </body>
