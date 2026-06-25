@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Curriculum OS — Your curriculum. Your voice. Your AI.</title>
+<title>Curriculum OS · Your curriculum. Your voice. Your AI.</title>
 <meta name="description" content="The curriculum operating system that learns your way of teaching. Hand over your own materials and Curriculum OS plans whole terms, builds every resource, adapts as you teach, and records why." />
 <meta name="theme-color" content="#5740F1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -69,7 +69,7 @@
   .hero-shot .float .fi{width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;background:var(--purple);color:#fff}
   .hero-shot .float b{font-size:14px;display:block}.hero-shot .float small{color:var(--muted);font-size:12px}
 
-  /* ===== S2: core difference — 3 step flow ===== */
+  /* ===== S2: core difference - 3 step flow ===== */
   .center{text-align:center;margin-inline:auto}
   .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;position:relative}
   .stepc{padding:30px 24px;text-align:center;position:relative;transition:transform .2s}
@@ -88,7 +88,7 @@
   .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-weight:700;font-size:13px;color:#43484f}
   .closing{text-align:center;margin-top:34px;font-family:"Space Grotesk";font-weight:700;font-size:22px;color:var(--purple)}
 
-  /* ===== S3: plan a whole term — interactive term strip ===== */
+  /* ===== S3: plan a whole term - interactive term strip ===== */
   .tint{background:var(--grey)}
   .term-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:30px}
   .weeks{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
@@ -111,7 +111,7 @@
   .pk-tags{display:flex;flex-wrap:wrap;gap:8px}
   .pk-tags span{background:#fff;border:1px solid #ded8ff;border-radius:10px;padding:8px 12px;font-weight:700;font-size:13px}
 
-  /* ===== S4: dynamic — toggle ===== */
+  /* ===== S4: dynamic ===== */
   .dark{background:var(--ink);color:#fff}
   .dark .lead{color:#b9bdcc}.dark .eyebrow{color:var(--cyan)}
   .toggle{display:inline-flex;background:#1b202b;border:1px solid #2a3040;border-radius:999px;padding:5px;margin:26px 0 30px}
@@ -125,7 +125,7 @@
   .doc-row:last-child{border:0}
   .tagm{margin-left:auto;font-size:12px;font-weight:800;padding:5px 10px;border-radius:8px}
 
-  /* ===== S5: remembers why — decision log timeline ===== */
+  /* ===== S5: remembers why - decision log timeline ===== */
   .logwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
   .log{border-left:2px solid var(--line);padding-left:26px;display:grid;gap:22px}
   .entry{position:relative}
@@ -135,7 +135,7 @@
   .entry .why{color:var(--muted);font-size:15px}
   .entry .why b{color:var(--ink)}
 
-  /* ===== S6: team — hub diagram ===== */
+  /* ===== S6: team - hub diagram ===== */
   .hub{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
   .hubviz{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center}
   .person{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 10px;font-weight:700;font-size:13px;box-shadow:var(--shadow)}
@@ -145,6 +145,26 @@
   .team-points{list-style:none;margin:18px 0 0;display:grid;gap:12px}
   .team-points li{position:relative;padding-left:30px;font-weight:600;color:#2c3142}
   .team-points li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border-radius:5px;background:var(--purple-50);box-shadow:inset 0 0 0 2px var(--purple)}
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .tcard .ic-w{width:42px;height:42px;border-radius:12px;background:var(--purple-50);color:var(--purple);display:grid;place-items:center;margin-bottom:12px}
+  .tcard .ic-w .ic{width:22px;height:22px}
+  .tcard p{font-weight:700;font-size:15px;color:var(--ink);line-height:1.4}
+  .dyn-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .dyn-points{list-style:none;margin:22px 0 0;display:grid;gap:12px}
+  .dyn-points li{position:relative;padding-left:28px;color:#cfd3df;font-weight:600}
+  .dyn-points li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:5px;background:#1c1840;box-shadow:inset 0 0 0 2px var(--cyan)}
+  .loopviz{display:grid;gap:14px;position:relative}
+  .loopstep{display:flex;gap:14px;align-items:flex-start;background:#161A24;border:1px solid #262b39;border-radius:16px;padding:18px 20px;animation:lstep 6s ease-in-out infinite}
+  .loopstep:nth-child(2){animation-delay:2s}
+  .loopstep:nth-child(3){animation-delay:4s}
+  @keyframes lstep{0%,26%{border-color:var(--purple);background:#1a1640;transform:translateY(-2px)}33%,100%{border-color:#262b39;background:#161A24;transform:none}}
+  .loopstep .ls-ic{width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:13px;background:var(--purple);color:#fff}
+  .loopstep b{display:block;color:#fff;font-size:15px}
+  .loopstep small{color:#9aa0b3;font-size:14px}
+  .loop-label{display:flex;align-items:center;gap:8px;color:var(--cyan);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-top:6px}
+  .loop-label .ic{width:18px;height:18px}
+  @media(prefers-reduced-motion:reduce){.loopstep{animation:none}}
 
   /* ===== S7: proof ===== */
   .proof{background:linear-gradient(120deg,var(--purple),#6f5bff);color:#fff;text-align:center}
@@ -166,7 +186,9 @@
   .spots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
   .spot{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center}
   .spot .num{font-family:"Space Grotesk";font-size:46px;font-weight:700;color:var(--purple);line-height:1}
-  .spot .lab{font-weight:800;margin-top:6px}
+  .spot .lab{font-weight:800;margin-top:6px;color:var(--ink)}
+  .spots-head{font-weight:700;margin:24px 0 0;font-size:16px}
+  .spot .cap{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--purple);background:var(--purple-50);padding:4px 9px;border-radius:7px;margin-bottom:8px}
   .spot small{color:var(--muted);font-weight:600;font-size:13px;display:block;margin-top:4px}
   .offer-cta{margin-top:30px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
   .apply{margin-top:30px;max-width:760px}
@@ -186,6 +208,16 @@
   .nw-file{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;font-weight:600;font-size:14px;color:#43484f}
   .nw-file .ic{width:16px;height:16px;color:var(--muted);flex:none}
   .nw-more{color:var(--muted);font-weight:700;font-size:13px;margin-top:4px}
+  .nw-file .ft{font-size:10px;font-weight:800;color:#fff;padding:5px 7px;border-radius:6px;letter-spacing:.03em;flex:none}
+  .ft-doc{background:#5740F1}.ft-pdf{background:#E5484D}.ft-ppt{background:#FA602F}.ft-xls{background:#22B8A6}
+  .nw-file .nf b{display:block;font-size:14px;font-weight:700;color:var(--ink)}
+  .nw-file .nf small{color:var(--muted);font-size:12px;font-weight:600}
+  .nw-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .nw-chips span{background:rgba(255,255,255,.18);border-radius:8px;padding:5px 9px;font-size:12px;font-weight:700}
+  .nw-list{list-style:none;margin:22px 0 0;display:grid;gap:14px}
+  .nw-list li{display:flex;align-items:center;gap:12px;font-weight:600;color:#2c3142}
+  .nw-ic{width:34px;height:34px;border-radius:10px;flex:none;background:var(--purple-50);color:var(--purple);display:grid;place-items:center}
+  .nw-ic .ic{width:18px;height:18px}
   .nw-arrow{justify-self:center;font-weight:800;color:var(--purple);font-size:13px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
   .nw-engine{background:linear-gradient(120deg,var(--purple),#7b67ff);color:#fff;border:0}
   .nw-engine .h .ic{color:#fff}
@@ -236,14 +268,16 @@
     section{padding:64px 0}
     .nav-links{display:none}.menu-btn{display:block}
     .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line)}
-    .hero-inner,.package,.logwrap,.hub,.feature{grid-template-columns:1fr}
+    .hero-inner,.package,.logwrap,.hub,.feature,.dyn-grid{grid-template-columns:1fr}
     .flow,.spots,.hubviz,.proof-row{grid-template-columns:1fr}
+    .team-grid{grid-template-columns:1fr 1fr}
     .countdown{gap:10px}.cd{flex:1;min-width:0}
     .stepc:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}
     .nav-cta .btn-outline{display:none}
   }
   @media(max-width:560px){
     section{padding:50px 0}
+    .team-grid{grid-template-columns:1fr}
     .wrap{padding:0 18px}
     .hero-inner{padding:44px 0 56px}
     .hero h1{font-size:clamp(34px,9vw,44px)}
@@ -287,7 +321,7 @@
       <span class="pill"><span class="dot"></span> 250+ teachers already on board · second cohort now open</span>
       <h1>Your curriculum.<br>Your voice. Your AI.</h1>
       <div class="tag">The curriculum operating system that learns your way of teaching.</div>
-      <p class="body">Hand over your <span class="hl">own guidance, schemes and resources</span>, and Curriculum OS plans whole terms and builds every lesson and resource for you — in your style, not a generic one.</p>
+      <p class="body">Hand over your <span class="hl">own guidance, schemes and resources</span>, and Curriculum OS plans whole terms and builds every lesson and resource for you, in your style, not a generic one.</p>
       <div class="hero-cta">
         <a href="#apply" class="btn btn-primary">Apply for a place →</a>
         <a href="#difference" class="btn btn-dark">See how it works</a>
@@ -314,8 +348,8 @@
   <div class="wrap">
     <div class="center" style="max-width:720px">
       <span class="eyebrow">The difference</span>
-      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Powerful AI — powered by your materials.</h2>
-      <p class="lead center">Generic AI is powerful, but it doesn't know your pupils, your standards or your way of teaching. Curriculum OS is just as powerful — and your own guidance, schemes and resources <strong>drive</strong> it. So everything Curriculum OS creates carries the full force of AI, aimed entirely at how <strong>you</strong> teach.</p>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Powerful AI, powered by your materials.</h2>
+      <p class="lead center">Generic AI is powerful, but it doesn't know your pupils, your standards or your way of teaching. Curriculum OS is just as powerful, and your own guidance, schemes and resources <strong>drive</strong> it. So everything Curriculum OS creates carries the full force of AI, aimed entirely at how <strong>you</strong> teach.</p>
     </div>
     <div class="flow">
       <div class="stepc">
@@ -326,16 +360,16 @@
       </div>
       <div class="stepc">
         <div class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
-        <h3>They power your AI</h3>
-        <p>Your knowledge becomes the engine — not a generic model.</p>
+        <h3>Your work becomes the engine</h3>
+        <p>Curriculum OS learns from your materials, not a generic model.</p>
       </div>
       <div class="stepc">
         <div class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.4 2.1L15.5 12l-2.1 1.4L12 15.5l-1.4-2.1L8.5 12l2.1-1.4z"/></svg></div>
         <h3>Builds your curriculum, in your voice</h3>
-        <p>Full terms, lessons and resources — to your standards.</p>
+        <p>Full terms, lessons and resources, to your standards.</p>
       </div>
     </div>
-    <p class="closing">The more you add, the more powerful — and the more your AI sounds like you.</p>
+    <p class="closing">The more you add, the more powerful and personal Curriculum OS becomes.</p>
   </div>
 </section>
 
@@ -345,26 +379,28 @@
     <div>
       <span class="eyebrow">Nothing wasted</span>
       <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Years of resources. Finally an engine that uses them.</h2>
-      <p class="lead">Every teacher has folders — whole drives — full of schemes, worksheets, slides and plans, built over years and barely reused. Point Curriculum OS at them and all of it becomes your own AI. Your past work becomes the engine that plans every future lesson.</p>
-      <ul class="team-points">
-        <li>Connect a folder or a whole drive — we index everything.</li>
-        <li>Nothing is lost — every resource makes your AI smarter.</li>
-        <li>The more you've made, the more powerful your AI gets.</li>
+      <p class="lead">Every teacher has folders, whole drives, full of schemes, worksheets, slides and plans, built over years and barely reused. Point Curriculum OS at them, and all of it goes to work. Your past work becomes the engine that plans every future lesson.</p>
+      <ul class="nw-list">
+        <li><span class="nw-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span> Connect a folder or a whole drive, and we index all of it.</li>
+        <li><span class="nw-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.4 2.1L15.5 12l-2.1 1.4L12 15.5l-1.4-2.1L8.5 12l2.1-1.4z"/></svg></span> Nothing is lost. Every resource sharpens the engine.</li>
+        <li><span class="nw-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></span> The more you've made, the more powerful the engine gets.</li>
       </ul>
       <p class="nw-payoff">None of your work is wasted. All of it powers the engine.</p>
     </div>
     <div class="nw-vis">
       <div class="nw-card">
         <div class="h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Your Drive</div>
-        <div class="nw-file"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg> Autumn term scheme.docx</div>
-        <div class="nw-file"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg> Fractions worksheets.pdf</div>
-        <div class="nw-file"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg> Year 5 slides.pptx</div>
+        <div class="nw-file"><span class="ft ft-doc">DOCX</span><div class="nf"><b>Autumn term scheme of work</b><small>Modified 2 years ago</small></div></div>
+        <div class="nw-file"><span class="ft ft-pdf">PDF</span><div class="nf"><b>Fractions worksheets (Y5)</b><small>3.2 MB · 18 pages</small></div></div>
+        <div class="nw-file"><span class="ft ft-ppt">PPTX</span><div class="nf"><b>Place value slides</b><small>Modified last year</small></div></div>
+        <div class="nw-file"><span class="ft ft-xls">XLSX</span><div class="nf"><b>KS3 assessment tracker</b><small>1.1 MB</small></div></div>
         <div class="nw-more">+ 1,240 more files, gathering dust…</div>
       </div>
-      <div class="nw-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M12 5v14M5 12l7 7 7-7"/></svg> indexed into your AI</div>
+      <div class="nw-arrow"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M12 5v14M5 12l7 7 7-7"/></svg> indexed into Curriculum OS</div>
       <div class="nw-card nw-engine">
-        <div class="h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.4 2.1L15.5 12l-2.1 1.4L12 15.5l-1.4-2.1L8.5 12l2.1-1.4z"/></svg> Your AI engine</div>
-        <small>Now trained on 1,240+ of your own resources — planning in your voice.</small>
+        <div class="h"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.4 2.1L15.5 12l-2.1 1.4L12 15.5l-1.4-2.1L8.5 12l2.1-1.4z"/></svg> Curriculum OS engine</div>
+        <small>Trained on 1,240+ of your own resources, planning in your voice.</small>
+        <div class="nw-chips"><span>Y5 Maths</span><span>KS3 Science</span><span>Dept policies</span><span>Skills framework</span></div>
       </div>
     </div>
   </div>
@@ -377,7 +413,7 @@
       <div>
         <span class="eyebrow">Plan a whole scheme of work</span>
         <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">A whole scheme of work, not a single lesson.</h2>
-        <p class="lead" style="margin-top:10px">Give Curriculum OS a concept, a topic or your <strong>scheme of work</strong>, and the whole sequence is built in minutes — every lesson planned, every resource made, stretch and support baked in. Powered by your own materials — fast, deep, and unmistakably yours.</p>
+        <p class="lead" style="margin-top:10px">Give Curriculum OS a concept, a topic or your <strong>scheme of work</strong>, and the whole sequence is built in minutes: every lesson planned, every resource made, stretch and support baked in. Powered by your own materials, fast, deep and unmistakably yours.</p>
       </div>
       <span class="note">↓ pick a subject, then a week</span>
     </div>
@@ -399,7 +435,7 @@
       <div class="pk-content">
         <div class="t">This week's resources</div>
         <div class="pk-tags" id="pk-tags"></div>
-        <p style="margin-top:14px;color:var(--muted);font-size:14px">Generated in minutes — all fully editable by you.</p>
+        <p style="margin-top:14px;color:var(--muted);font-size:14px">Generated in minutes, all fully editable by you.</p>
       </div>
     </div>
   </div>
@@ -407,30 +443,22 @@
 
 <!-- ===== S4: DYNAMIC ===== -->
 <section class="dark" id="dynamic">
-  <div class="wrap">
-    <span class="eyebrow">Then it gets dynamic</span>
-    <h2 style="font-size:clamp(28px,3.8vw,46px);margin:12px 0 8px;max-width:760px">Your plan isn't a document. It's alive.</h2>
-    <p class="lead">Deliver a lesson, tell Curriculum OS how it went, and the plan updates itself — the next lesson adapts to your feedback.</p>
-    <div class="toggle" role="tablist">
-      <button class="on" data-p="static">A static plan</button>
-      <button data-p="living">A living plan</button>
+  <div class="wrap dyn-grid">
+    <div>
+      <span class="eyebrow">Then it gets dynamic</span>
+      <h2 style="font-size:clamp(28px,3.8vw,46px);margin:12px 0 14px">Your plan isn't a document. It's alive.</h2>
+      <p class="lead">Deliver a lesson, tell Curriculum OS how it went, and tomorrow's lesson rebuilds around what actually happened. No more plans gathering dust in a drawer.</p>
+      <ul class="dyn-points">
+        <li>A 30-second reflection after class is all it takes.</li>
+        <li>Agreed actions carry into the next lesson automatically.</li>
+        <li>Your scheme stays accurate all term, not just in September.</li>
+      </ul>
     </div>
-    <div class="panel show" id="p-static">
-      <h3>The old way</h3>
-      <p>You write a term plan in the summer. By week three, the class has moved on — but the document hasn't. It sits in a drawer, out of date.</p>
-      <div style="margin-top:16px">
-        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#cfd3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg> Term plan v1 <span class="tagm" style="background:#3a2230;color:#ff8d8d">out of date</span></div>
-        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#cfd3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg> …never opened again <span class="tagm" style="background:#2a3040;color:#9aa0b3">static</span></div>
-      </div>
-    </div>
-    <div class="panel" id="p-living">
-      <h3>With Curriculum OS</h3>
-      <p>You teach, you reflect, and tomorrow's lesson rebuilds itself around what actually happened — automatically.</p>
-      <div style="margin-top:16px">
-        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#5be0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> “Remainders were tricky — needed concrete examples” <span class="tagm" style="background:#10261f;color:#5be0a6">your feedback</span></div>
-        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#b3a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 0 1-4 0v-.1A1.6 1.6 0 0 0 7 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3 14.1H3a2 2 0 0 1 0-4h.1A1.6 1.6 0 0 0 4.6 8"/></svg> The AI rebuilds the next lesson — counters + scaffolded worksheet <span class="tagm" style="background:#1c1840;color:#b3a6ff">updated</span></div>
-        <div class="doc-row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#5be0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ready when you log in tomorrow <span class="tagm" style="background:#10261f;color:#5be0a6">live</span></div>
-      </div>
+    <div class="loopviz" aria-hidden="true">
+      <div class="loopstep"><span class="ls-ic">1</span><div><b>You teach &amp; reflect</b><small>"Year 9 found inverting fractions tricky"</small></div></div>
+      <div class="loopstep"><span class="ls-ic">2</span><div><b>Curriculum OS proposes actions</b><small>Re-model with bar models · add scaffolded practice · flag 4 pupils for support</small></div></div>
+      <div class="loopstep"><span class="ls-ic">3</span><div><b>Tomorrow's lesson, rebuilt</b><small>Updated and ready when you log in</small></div></div>
+      <div class="loop-label"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg> Repeats every lesson</div>
     </div>
   </div>
 </section>
@@ -440,33 +468,36 @@
   <div class="wrap logwrap">
     <div>
       <span class="eyebrow">Remembers why</span>
-      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Not just what you taught — why you taught it that way.</h2>
-      <p class="lead">Curriculum OS records the decisions you make in real time and the reasons behind them. You build up something teachers never usually have: a record of your reasoning over time — ready when you need to show <em>why</em> you did what you did, and to see what actually worked.</p>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Not just what you taught, but why you taught it that way.</h2>
+      <p class="lead">Curriculum OS records the decisions you make in real time and the reasons behind them. You build up something teachers never usually have: a record of your reasoning over time, ready for when you need to show <em>why</em> you did what you did, and to see what actually worked.</p>
     </div>
     <div class="log">
-      <div class="entry"><div class="when">Tue · Period 3</div><div class="what">Re-taught division as sharing</div><div class="why"><b>Why:</b> mini-whiteboard check showed 60% unsure — went back before moving on.</div></div>
-      <div class="entry"><div class="when">Wed · Period 1</div><div class="what">Grouped by mixed ability</div><div class="why"><b>Why:</b> peer explanation worked well last unit; wanted stronger pupils to model.</div></div>
-      <div class="entry"><div class="when">Thu · Period 4</div><div class="what">Swapped worksheet for a game</div><div class="why"><b>Why:</b> low energy after assembly — needed engagement to hold focus.</div></div>
+      <div class="entry"><div class="when">Tue · Year 9</div><div class="what">Slowed down on dividing fractions</div><div class="why"><b>Why:</b> the do-now showed most pupils inverting the wrong fraction, so I remodelled it with bar models before moving on.</div></div>
+      <div class="entry"><div class="when">Wed · Year 7</div><div class="what">Swapped silent practice for paired whiteboards</div><div class="why"><b>Why:</b> too many misconceptions slipped through last lesson, so I wanted to see every pupil's working in real time.</div></div>
+      <div class="entry"><div class="when">Thu · Year 11</div><div class="what">Dropped the extension for past-paper practice</div><div class="why"><b>Why:</b> the mock flagged lost method marks, so timed exam questions mattered more than stretch this week.</div></div>
     </div>
   </div>
 </section>
 
 <!-- ===== S6: TEAM ===== -->
 <section class="tint" id="team">
-  <div class="wrap hub">
-    <div>
-      <span class="eyebrow">Stronger with your team</span>
-      <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Stronger with your team.</h2>
-      <p class="lead">When your department or school adds its materials, they power one shared AI that every teacher plans with. You get the best of the whole team's practice — in your own voice. A new or non-specialist teacher plans like your most experienced one, from day one.</p>
-      <ul class="team-points">
-        <li>Plan with the best of everyone's practice, not just your own.</li>
-        <li>New and non-specialist teachers level up instantly.</li>
-        <li>Whole-team consistency, without flattening anyone's style.</li>
-      </ul>
-      <a href="#apply" class="btn btn-outline" style="margin-top:22px">Apply for a place</a>
+  <div class="wrap">
+    <div class="hub">
+      <div>
+        <span class="eyebrow">Stronger with your team</span>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Stronger with your team.</h2>
+        <p class="lead">When your department or school adds their materials, they power one shared AI the whole team plans with, so everyone draws on the best of the team's practice, in their own voice. A new or non-specialist teacher can plan like your most experienced one, from day one.</p>
+        <a href="#apply" class="btn btn-outline" style="margin-top:22px">Apply for a place</a>
+      </div>
+      <div class="hero-shot" style="aspect-ratio:4/3">
+        <img src="https://images.pexels.com/photos/5940836/pexels-photo-5940836.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A group of teachers collaborating together in a bright, modern library" loading="lazy" />
+      </div>
     </div>
-    <div class="hero-shot" style="aspect-ratio:4/3">
-      <img src="https://images.pexels.com/photos/5940836/pexels-photo-5940836.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A group of teachers collaborating together in a bright, modern library" loading="lazy" />
+    <div class="team-grid">
+      <div class="tcard"><span class="ic-w"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><p>The best of everyone's practice, in every teacher's planning.</p></div>
+      <div class="tcard"><span class="ic-w"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></span><p>New and non-specialist teachers plan with confidence from day one.</p></div>
+      <div class="tcard"><span class="ic-w"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><p>Consistency across the team, without flattening anyone's style.</p></div>
+      <div class="tcard"><span class="ic-w"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><p>Your team's knowledge stays, even when staff move on.</p></div>
     </div>
   </div>
 </section>
@@ -477,11 +508,11 @@
     <span class="eyebrow">Built with teachers, not just for them</span>
     <div class="big">250+</div>
     <p>teachers built cohort 1 with us</p>
-    <p class="proof-lead">Their feedback grew the features, sharpened the planning, and proved the model in real classrooms. Now <strong>cohort 2 is open</strong> — just as hands-on.</p>
+    <p class="proof-lead">Their feedback grew the features, sharpened the planning, and proved the model in real classrooms. Now <strong>cohort 2 is open</strong>, just as hands-on.</p>
     <div class="proof-row">
       <div class="proof-card"><b>Cohort 1</b><small>250+ teachers in beta</small></div>
       <div class="proof-card"><b>Shaped by feedback</b><small>The product grew with them</small></div>
-      <div class="proof-card"><b>Cohort 2</b><small>Now open — limited places</small></div>
+      <div class="proof-card"><b>Cohort 2</b><small>Now open, limited places</small></div>
     </div>
   </div>
 </section>
@@ -491,22 +522,23 @@
   <div class="wrap">
     <span class="eyebrow">Founding access · second cohort</span>
     <h2 style="margin-top:12px">We're not chasing mass sign-ups.</h2>
-    <p class="lead" style="margin-top:14px">Your AI is only as good as the materials behind it — so we take a small cohort and build each one with you, hands-on. When these places are gone, they're gone.</p>
+    <p class="lead" style="margin-top:14px">Curriculum OS is only as good as the materials behind it, so we take a small cohort and build each one with you, hands-on. When these places are gone, they're gone.</p>
     <div class="countdown" id="countdown">
       <div class="cd"><b id="cd-d">--</b><small>days</small></div>
       <div class="cd"><b id="cd-h">--</b><small>hrs</small></div>
       <div class="cd"><b id="cd-m">--</b><small>min</small></div>
       <div class="cd"><b id="cd-s">--</b><small>sec</small></div>
     </div>
-    <p style="font-weight:700;color:var(--muted);font-size:14px">Applications close <strong style="color:var(--ink)">19 July</strong>.</p>
+    <p style="font-weight:800;color:var(--orange);font-size:15px">Applications close <strong>19 July</strong>.</p>
+    <p class="spots-head">This is the whole of cohort 2. When these places are filled, applications close:</p>
     <div class="spots">
-      <div class="spot"><div class="num">150</div><div class="lab">Teacher places</div><small>Individual founding members</small></div>
-      <div class="spot"><div class="num">10</div><div class="lab">School accounts</div><small>Whole-school knowledge</small></div>
-      <div class="spot"><div class="num">2</div><div class="lab">Trusts / councils</div><small>Multi-school rollouts</small></div>
+      <div class="spot"><span class="cap">Places available</span><div class="num">250</div><div class="lab">Teachers</div><small>Individual founding members</small></div>
+      <div class="spot"><span class="cap">Places available</span><div class="num">25</div><div class="lab">Schools</div><small>Whole-school knowledge bases</small></div>
+      <div class="spot"><span class="cap">Places available</span><div class="num">5</div><div class="lab">Trusts &amp; councils</div><small>Multi-school rollouts</small></div>
     </div>
     <div class="offer-cta" style="margin-top:32px;display:block">
       <a href="#apply" class="btn btn-primary" style="font-size:18px;padding:17px 32px">Apply for a place →</a>
-      <p class="apply-fine" style="color:#eae7ff;margin-top:12px">No payment now — we review applications and onboard in order.</p>
+      <p class="apply-fine" style="color:#eae7ff;margin-top:12px">No payment now. We review applications and onboard in order.</p>
     </div>
   </div>
 </section>
@@ -519,10 +551,10 @@
       <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">Good questions, straight answers.</h2>
     </div>
     <div class="faq">
-      <div class="qa"><button>What actually makes it different? <span class="pm">+</span></button><div class="ans"><p>Curriculum OS is powerful AI, powered by your own materials. Everything Curriculum OS builds draws on your guidance, schemes and resources — so you get the full force of AI, planning the way you teach, not generic answers.</p></div></div>
+      <div class="qa"><button>What actually makes it different? <span class="pm">+</span></button><div class="ans"><p>Curriculum OS is powerful AI, powered by your own materials. Everything Curriculum OS builds draws on your guidance, schemes and resources, so you get the full force of AI, planning the way you teach, not generic answers.</p></div></div>
       <div class="qa"><button>Do I stay in control of the content? <span class="pm">+</span></button><div class="ans"><p>Always. Every plan, worksheet, video, interactive lesson and game is fully editable by you. Curriculum OS drafts; you decide.</p></div></div>
-      <div class="qa"><button>Is my material private? <span class="pm">+</span></button><div class="ans"><p>Your materials power your account only — never pooled or shared with other users. We'll walk you through the full detail during onboarding. <span class="note">[confirm exact wording with you]</span></p></div></div>
-      <div class="qa"><button>Who is the second cohort for? <span class="pm">+</span></button><div class="ans"><p>Individual teachers, schools, and trusts/councils. 250+ teachers are already building with Curriculum OS in beta — this cohort opens 150 teacher places, 10 schools and 2 trusts before 19 July.</p></div></div>
+      <div class="qa"><button>Is my material private? <span class="pm">+</span></button><div class="ans"><p>Your materials power your account only, never pooled or shared with other users. We'll walk you through the full detail during onboarding. <span class="note">[confirm exact wording with you]</span></p></div></div>
+      <div class="qa"><button>Who is the second cohort for? <span class="pm">+</span></button><div class="ans"><p>Individual teachers, schools, and trusts/councils. 250+ teachers are already building with Curriculum OS in beta. This cohort opens 250 teacher places, 25 schools and 5 trusts before 19 July.</p></div></div>
     </div>
   </div>
 </section>
