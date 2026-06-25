@@ -150,6 +150,12 @@
   .proof{background:linear-gradient(120deg,var(--purple),#6f5bff);color:#fff;text-align:center}
   .proof .big{font-family:"Space Grotesk";font-size:clamp(58px,10vw,120px);font-weight:700;line-height:1}
   .proof p{font-weight:700;font-size:19px;opacity:.92;margin-top:6px}
+  .proof .eyebrow{color:#d6cfff}
+  .proof-lead{max-width:620px;margin:16px auto 0;font-size:18px;color:#eae7ff;font-weight:500;opacity:1}
+  .proof-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:760px;margin:30px auto 0}
+  .proof-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:18px}
+  .proof-card b{display:block;font-family:"Space Grotesk";font-size:18px}
+  .proof-card small{color:#e6e3ff;font-weight:600;opacity:1}
 
   /* ===== S8: offer ===== */
   .cohort h2{font-size:clamp(30px,3.8vw,46px);max-width:720px}
@@ -231,7 +237,7 @@
     .nav-links{display:none}.menu-btn{display:block}
     .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line)}
     .hero-inner,.package,.logwrap,.hub,.feature{grid-template-columns:1fr}
-    .flow,.spots,.hubviz{grid-template-columns:1fr}
+    .flow,.spots,.hubviz,.proof-row{grid-template-columns:1fr}
     .countdown{gap:10px}.cd{flex:1;min-width:0}
     .stepc:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}
     .nav-cta .btn-outline{display:none}
@@ -468,9 +474,15 @@
 <!-- ===== S7: PROOF ===== -->
 <section class="proof">
   <div class="wrap">
+    <span class="eyebrow">Built with teachers, not just for them</span>
     <div class="big">250+</div>
-    <p>teachers already building with Curriculum OS in our beta</p>
-    <p class="note" style="color:#e3deff;margin-top:10px">[ teacher quotes / logos to add ]</p>
+    <p>teachers built cohort 1 with us</p>
+    <p class="proof-lead">Their feedback grew the features, sharpened the planning, and proved the model in real classrooms. Now <strong>cohort 2 is open</strong> — just as hands-on.</p>
+    <div class="proof-row">
+      <div class="proof-card"><b>Cohort 1</b><small>250+ teachers in beta</small></div>
+      <div class="proof-card"><b>Shaped by feedback</b><small>The product grew with them</small></div>
+      <div class="proof-card"><b>Cohort 2</b><small>Now open — limited places</small></div>
+    </div>
   </div>
 </section>
 
