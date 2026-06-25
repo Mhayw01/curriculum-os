@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Curriculum OS — Your curriculum. Your voice. Your AI.</title>
-<meta name="description" content="The curriculum operating system that learns your way of teaching. Give it your own materials and it plans whole terms, builds every resource, adapts as you teach, and records why." />
+<meta name="description" content="The curriculum operating system that learns your way of teaching. Hand over your own materials and Curriculum OS plans whole terms, builds every resource, adapts as you teach, and records why." />
 <meta name="theme-color" content="#5740F1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -182,6 +182,19 @@
   .nw-engine .h .ic{color:#fff}
   .nw-engine small{color:#eae7ff;font-weight:600}
   @media(max-width:900px){.nw-grid{grid-template-columns:1fr}}
+  /* apply modal */
+  .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal:target{display:flex}
+  html:has(.modal:target){overflow:hidden}
+  .modal-overlay{position:absolute;inset:0;background:rgba(14,17,22,.55);backdrop-filter:blur(3px)}
+  .modal-card{position:relative;background:#fff;border-radius:22px;max-width:460px;width:100%;padding:32px;box-shadow:0 40px 90px -20px rgba(0,0,0,.55);animation:pop .25s ease;max-height:92vh;overflow:auto}
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  .modal-x{position:absolute;top:10px;right:18px;font-size:30px;color:var(--muted);text-decoration:none;line-height:1}
+  .modal-x:hover{color:var(--ink)}
+  .modal-title{font-family:"Space Grotesk";font-size:26px;margin:8px 0 6px}
+  .modal-sub{color:var(--muted);font-size:15px;margin-bottom:18px}
+  .modal .apply{margin-top:0;max-width:none}
+  .modal .apply-grid{grid-template-columns:1fr}
   /* loud offer */
   .offerbold{background:radial-gradient(900px 480px at 85% -10%,rgba(63,208,224,.45),transparent 60%),linear-gradient(135deg,#5740F1,#3A28C2);color:#fff}
   .offerbold .eyebrow{color:var(--cyan)}
@@ -214,10 +227,25 @@
     section{padding:64px 0}
     .nav-links{display:none}.menu-btn{display:block}
     .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line)}
-    .hero-inner,.package,.logwrap,.hub{grid-template-columns:1fr}
+    .hero-inner,.package,.logwrap,.hub,.feature{grid-template-columns:1fr}
     .flow,.spots,.hubviz{grid-template-columns:1fr}
+    .countdown{gap:10px}.cd{flex:1;min-width:0}
     .stepc:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}
     .nav-cta .btn-outline{display:none}
+  }
+  @media(max-width:560px){
+    section{padding:50px 0}
+    .wrap{padding:0 18px}
+    .hero-inner{padding:44px 0 56px}
+    .hero h1{font-size:clamp(34px,9vw,44px)}
+    .hero-cta .btn,.offer-cta .btn{width:100%;justify-content:center}
+    .micro{gap:12px}
+    .cd{padding:12px 2px}.cd b{font-size:23px}.cd small{font-size:10px}
+    .toggle{width:100%}.toggle button{flex:1;padding:11px 8px;font-size:14px}
+    .doc-row{flex-wrap:wrap}
+    .week{min-width:104px}
+    .modal{padding:14px}.modal-card{padding:24px 20px}.modal-title{font-size:23px}
+    .nw-payoff{font-size:18px}
   }
 </style>
 </head>
@@ -236,7 +264,7 @@
       <a href="#offer">Founding access</a>
     </nav>
     <div class="nav-cta">
-      <a href="#offer" class="btn btn-primary">Apply for a place</a>
+      <a href="#apply" class="btn btn-primary">Apply for a place</a>
       <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
     </div>
   </div>
@@ -250,9 +278,9 @@
       <span class="pill"><span class="dot"></span> 250+ teachers already on board · second cohort now open</span>
       <h1>Your curriculum.<br>Your voice. Your AI.</h1>
       <div class="tag">The curriculum operating system that learns your way of teaching.</div>
-      <p class="body">Give it your <span class="hl">own guidance, schemes and resources</span>, and Curriculum OS plans whole terms and builds every lesson and resource for you — in your style, not a generic one.</p>
+      <p class="body">Hand over your <span class="hl">own guidance, schemes and resources</span>, and Curriculum OS plans whole terms and builds every lesson and resource for you — in your style, not a generic one.</p>
       <div class="hero-cta">
-        <a href="#offer" class="btn btn-primary">Apply for a place →</a>
+        <a href="#apply" class="btn btn-primary">Apply for a place →</a>
         <a href="#difference" class="btn btn-dark">See how it works</a>
       </div>
       <div class="micro">
@@ -278,7 +306,7 @@
     <div class="center" style="max-width:720px">
       <span class="eyebrow">The difference</span>
       <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Powerful AI — powered by your materials.</h2>
-      <p class="lead center">Generic AI is powerful, but it doesn't know your pupils, your standards or your way of teaching. Curriculum OS is just as powerful — and your own guidance, schemes and resources <strong>drive</strong> it. So everything it creates has the full force of AI behind it, aimed entirely at how <strong>you</strong> teach.</p>
+      <p class="lead center">Generic AI is powerful, but it doesn't know your pupils, your standards or your way of teaching. Curriculum OS is just as powerful — and your own guidance, schemes and resources <strong>drive</strong> it. So everything Curriculum OS creates carries the full force of AI, aimed entirely at how <strong>you</strong> teach.</p>
     </div>
     <div class="flow">
       <div class="stepc">
@@ -290,15 +318,15 @@
       <div class="stepc">
         <div class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
         <h3>They power your AI</h3>
-        <p>Your knowledge becomes its engine — not a generic model.</p>
+        <p>Your knowledge becomes the engine — not a generic model.</p>
       </div>
       <div class="stepc">
         <div class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="M12 8.5l1.4 2.1L15.5 12l-2.1 1.4L12 15.5l-1.4-2.1L8.5 12l2.1-1.4z"/></svg></div>
-        <h3>It builds your curriculum, in your voice</h3>
+        <h3>Builds your curriculum, in your voice</h3>
         <p>Full terms, lessons and resources — to your standards.</p>
       </div>
     </div>
-    <p class="closing">The more you feed it, the more powerful — and the more it's yours.</p>
+    <p class="closing">The more you add, the more powerful — and the more your AI sounds like you.</p>
   </div>
 </section>
 
@@ -308,11 +336,11 @@
     <div>
       <span class="eyebrow">Nothing wasted</span>
       <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Years of resources. Finally an engine that uses them.</h2>
-      <p class="lead">Every teacher has folders — whole drives — full of schemes, worksheets, slides and plans, built over years and barely reused. Point Curriculum OS at them and it turns all of it into your own AI. Your past work becomes the engine that plans every future lesson.</p>
+      <p class="lead">Every teacher has folders — whole drives — full of schemes, worksheets, slides and plans, built over years and barely reused. Point Curriculum OS at them and all of it becomes your own AI. Your past work becomes the engine that plans every future lesson.</p>
       <ul class="team-points">
         <li>Connect a folder or a whole drive — we index everything.</li>
         <li>Nothing is lost — every resource makes your AI smarter.</li>
-        <li>The more you've made, the more powerful it gets.</li>
+        <li>The more you've made, the more powerful your AI gets.</li>
       </ul>
       <p class="nw-payoff">None of your work is wasted. All of it powers the engine.</p>
     </div>
@@ -339,8 +367,8 @@
     <div class="term-head">
       <div>
         <span class="eyebrow">Plan a whole term</span>
-        <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">A whole term, not a single lesson.</h2>
-        <p class="lead" style="margin-top:10px">Give it the topic. In minutes the AI builds the <strong>whole term</strong> — every lesson planned, every resource made, stretch and support baked in. Powered by your own materials, so it's fast, deep, and unmistakably yours.</p>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">A whole scheme of work, not a single lesson.</h2>
+        <p class="lead" style="margin-top:10px">Give Curriculum OS a concept, a topic or your <strong>scheme of work</strong>, and the whole sequence is built in minutes — every lesson planned, every resource made, stretch and support baked in. Powered by your own materials — fast, deep, and unmistakably yours.</p>
       </div>
       <span class="note">↓ click a week</span>
     </div>
@@ -410,7 +438,7 @@
 <section id="why">
   <div class="wrap logwrap">
     <div>
-      <span class="eyebrow">It remembers why</span>
+      <span class="eyebrow">Remembers why</span>
       <h2 style="font-size:clamp(28px,3.6vw,44px);margin:12px 0 14px">Not just what you taught — why you taught it that way.</h2>
       <p class="lead">Curriculum OS records the decisions you make in real time and the reasons behind them. You build up something teachers never usually have: a record of your reasoning over time — ready when you need to show <em>why</em> you did what you did, and to see what actually worked.</p>
     </div>
@@ -434,7 +462,7 @@
         <li>New and non-specialist teachers level up instantly.</li>
         <li>Whole-team consistency, without flattening anyone's style.</li>
       </ul>
-      <a href="#offer" class="btn btn-outline" style="margin-top:22px">Apply for a place</a>
+      <a href="#apply" class="btn btn-outline" style="margin-top:22px">Apply for a place</a>
     </div>
     <div class="hero-shot" style="aspect-ratio:4/3">
       <img src="https://images.pexels.com/photos/5940836/pexels-photo-5940836.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A group of teachers collaborating together in a bright, modern library" loading="lazy" />
@@ -469,6 +497,58 @@
       <div class="spot"><div class="num">10</div><div class="lab">School accounts</div><small>Whole-school knowledge</small></div>
       <div class="spot"><div class="num">2</div><div class="lab">Trusts / councils</div><small>Multi-school rollouts</small></div>
     </div>
+    <div class="offer-cta" style="margin-top:32px;display:block">
+      <a href="#apply" class="btn btn-primary" style="font-size:18px;padding:17px 32px">Apply for a place →</a>
+      <p class="apply-fine" style="color:#eae7ff;margin-top:12px">No payment now — we review applications and onboard in order.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="center" style="max-width:680px;margin-bottom:34px">
+      <span class="eyebrow">Questions</span>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">Good questions, straight answers.</h2>
+    </div>
+    <div class="faq">
+      <div class="qa"><button>What actually makes it different? <span class="pm">+</span></button><div class="ans"><p>Curriculum OS is powerful AI, powered by your own materials. Everything Curriculum OS builds draws on your guidance, schemes and resources — so you get the full force of AI, planning the way you teach, not generic answers.</p></div></div>
+      <div class="qa"><button>Do I stay in control of the content? <span class="pm">+</span></button><div class="ans"><p>Always. Every plan, worksheet, video, interactive lesson and game is fully editable by you. Curriculum OS drafts; you decide.</p></div></div>
+      <div class="qa"><button>Is my material private? <span class="pm">+</span></button><div class="ans"><p>Your materials power your account only — never pooled or shared with other users. We'll walk you through the full detail during onboarding. <span class="note">[confirm exact wording with you]</span></p></div></div>
+      <div class="qa"><button>Who is the second cohort for? <span class="pm">+</span></button><div class="ans"><p>Individual teachers, schools, and trusts/councils. 250+ teachers are already building with Curriculum OS in beta — this cohort opens 150 teacher places, 10 schools and 2 trusts before 19 July.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final">
+  <div class="wrap">
+    <h2>Build the AI that teaches the way you do.</h2>
+    <p>Founding places close 19 July. Join 250+ teachers already building with Curriculum OS.</p>
+    <a href="#apply" class="btn btn-light">Apply for a place →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#top" class="brand"><svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="lgf" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7b67ff"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs><path d="M44 12.5A26 26 0 1 0 54 33" fill="none" stroke="url(#lgf)" stroke-width="6" stroke-linecap="round"/><path d="M32 25c-3.6-2.5-8-3-13-1.9a1.4 1.4 0 0 0-1 1.4V40a1.1 1.1 0 0 0 1.4 1.05C24 40 28 40.4 32 43Z" fill="url(#lgf)"/><path d="M32 25c3.6-2.5 8-3 13-1.9a1.4 1.4 0 0 1 1 1.4V40a1.1 1.1 0 0 1-1.4 1.05C40 40 36 40.4 32 43Z" fill="url(#lgf)" opacity=".5"/><circle cx="50" cy="14" r="5" fill="#FA602F"/></svg><span style="color:#fff">Curriculum<span style="color:#9b8cff"> OS</span></span></a>
+      <nav class="foot-links">
+        <a href="#difference">How it works</a><a href="#term">What you get</a><a href="#team">For schools</a><a href="#offer">Founding access</a><a href="mailto:michael@bobldobl.com">Contact</a>
+      </nav>
+    </div>
+    <p class="copy">© <span id="yr"></span> Curriculum OS. The curriculum operating system that learns your way of teaching.</p>
+  </div>
+</footer>
+
+<!-- ===== APPLY MODAL ===== -->
+<div class="modal" id="apply">
+  <a href="#close" class="modal-overlay" aria-label="Close application form"></a>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Apply for a place">
+    <a href="#close" class="modal-x" aria-label="Close">×</a>
+    <span class="eyebrow">Founding access · second cohort</span>
+    <h3 class="modal-title">Apply for a place</h3>
+    <p class="modal-sub">250+ teachers already on board. Tell us a little about you and we'll be in touch to start building your knowledge base together.</p>
     <form class="apply" name="founding-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
       <input type="hidden" name="form-name" value="founding-access" />
       <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
@@ -486,47 +566,12 @@
       <span class="apply-fine">No payment now. We review applications and onboard in order.</span>
     </form>
   </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section id="faq">
-  <div class="wrap">
-    <div class="center" style="max-width:680px;margin-bottom:34px">
-      <span class="eyebrow">Questions</span>
-      <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">Good questions, straight answers.</h2>
-    </div>
-    <div class="faq">
-      <div class="qa"><button>What actually makes it different? <span class="pm">+</span></button><div class="ans"><p>It's powerful AI, powered by your own materials. Everything it creates is driven by your guidance, schemes and resources — so you get the full force of AI, planning the way you teach, not generic answers.</p></div></div>
-      <div class="qa"><button>Do I stay in control of the content? <span class="pm">+</span></button><div class="ans"><p>Always. Every plan, worksheet, video, interactive lesson and game is fully editable by you. Curriculum OS drafts; you decide.</p></div></div>
-      <div class="qa"><button>Is my material private? <span class="pm">+</span></button><div class="ans"><p>Your materials power your account only — never pooled or shared with other users. We'll walk you through the full detail during onboarding. <span class="note">[confirm exact wording with you]</span></p></div></div>
-      <div class="qa"><button>Who is the second cohort for? <span class="pm">+</span></button><div class="ans"><p>Individual teachers, schools, and trusts/councils. 250+ teachers are already using it in beta — this cohort opens 150 teacher places, 10 schools and 2 trusts before 19 July.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FINAL CTA ===== -->
-<section class="final">
-  <div class="wrap">
-    <h2>Build the AI that teaches the way you do.</h2>
-    <p>Founding places close 19 July. Join 250+ teachers already building with Curriculum OS.</p>
-    <a href="#offer" class="btn btn-light">Apply for a place →</a>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <a href="#top" class="brand"><svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="lgf" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7b67ff"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs><path d="M44 12.5A26 26 0 1 0 54 33" fill="none" stroke="url(#lgf)" stroke-width="6" stroke-linecap="round"/><path d="M32 25c-3.6-2.5-8-3-13-1.9a1.4 1.4 0 0 0-1 1.4V40a1.1 1.1 0 0 0 1.4 1.05C24 40 28 40.4 32 43Z" fill="url(#lgf)"/><path d="M32 25c3.6-2.5 8-3 13-1.9a1.4 1.4 0 0 1 1 1.4V40a1.1 1.1 0 0 1-1.4 1.05C40 40 36 40.4 32 43Z" fill="url(#lgf)" opacity=".5"/><circle cx="50" cy="14" r="5" fill="#FA602F"/></svg><span style="color:#fff">Curriculum<span style="color:#9b8cff"> OS</span></span></a>
-      <nav class="foot-links">
-        <a href="#difference">How it works</a><a href="#term">What you get</a><a href="#team">For schools</a><a href="#offer">Founding access</a><a href="mailto:michael@bobldobl.com">Contact</a>
-      </nav>
-    </div>
-    <p class="copy">© <span id="yr"></span> Curriculum OS. The curriculum operating system that learns your way of teaching.</p>
-  </div>
-</footer>
+</div>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+  // close apply modal on Escape
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&location.hash==='#apply')location.hash='#close';});
   const mb=document.getElementById('menuBtn'),nl=document.getElementById('navlinks');
   mb.addEventListener('click',()=>nl.classList.toggle('open'));
   nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
