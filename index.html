@@ -95,6 +95,9 @@
   .week{flex:1;min-width:120px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px;cursor:pointer;transition:.18s;text-align:left}
   .week:hover{border-color:var(--purple)}
   .week.active{background:var(--purple);color:#fff;border-color:var(--purple);box-shadow:var(--shadow)}
+  .subj-tabs{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;margin-bottom:18px;flex-wrap:wrap;gap:4px}
+  .subj{border:0;background:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;cursor:pointer;color:#43484f;font-family:inherit}
+  .subj.active{background:var(--purple);color:#fff}
   .week small{font-weight:700;opacity:.7;font-size:12px;text-transform:uppercase}
   .week b{display:block;font-size:15px;margin-top:3px}
   .package{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px}
@@ -366,20 +369,17 @@
   <div class="wrap">
     <div class="term-head">
       <div>
-        <span class="eyebrow">Plan a whole term</span>
+        <span class="eyebrow">Plan a whole scheme of work</span>
         <h2 style="font-size:clamp(28px,3.6vw,44px);margin-top:12px">A whole scheme of work, not a single lesson.</h2>
         <p class="lead" style="margin-top:10px">Give Curriculum OS a concept, a topic or your <strong>scheme of work</strong>, and the whole sequence is built in minutes — every lesson planned, every resource made, stretch and support baked in. Powered by your own materials — fast, deep, and unmistakably yours.</p>
       </div>
-      <span class="note">↓ click a week</span>
+      <span class="note">↓ pick a subject, then a week</span>
     </div>
-    <div class="weeks" id="weeks">
-      <button class="week active" data-w="0"><small>Week 1</small><b>Place value</b></button>
-      <button class="week" data-w="1"><small>Week 2</small><b>Rounding</b></button>
-      <button class="week" data-w="2"><small>Week 3</small><b>Division</b></button>
-      <button class="week" data-w="3"><small>Week 4</small><b>Fractions</b></button>
-      <button class="week" data-w="4"><small>Week 5</small><b>Add &amp; subtract</b></button>
-      <button class="week" data-w="5"><small>Week 6</small><b>Review</b></button>
+    <div class="subj-tabs" id="subjTabs">
+      <button class="subj active" data-s="lit">Literacy · KS2</button>
+      <button class="subj" data-s="num">Numeracy · KS3</button>
     </div>
+    <div class="weeks" id="weeks"></div>
     <div class="package">
       <div>
         <h3 id="pk-title">Week 1 · Place value</h3>
@@ -391,13 +391,8 @@
         </div>
       </div>
       <div class="pk-content">
-        <div class="t">The content to teach it</div>
-        <div class="pk-tags">
-          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h6M8 17h4"/></svg> Worksheets</span>
-          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l7 16 2-6 6-2z"/></svg> Interactive lesson</span>
-          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 12h2M8 11v2M16 11.5h.01M18.5 13h.01"/></svg> Game</span>
-          <span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg> Video</span>
-        </div>
+        <div class="t">This week's resources</div>
+        <div class="pk-tags" id="pk-tags"></div>
         <p style="margin-top:14px;color:var(--muted);font-size:14px">Generated in minutes — all fully editable by you.</p>
       </div>
     </div>
@@ -582,23 +577,55 @@
   }));
 
   // term weeks
-  const weekData=[
-    {t:"Week 1 · Place value",s:"Year 5 Maths · built from your scheme",plan:"Read, write & compare numbers to 1,000,000",prog:"Negative numbers & powers of 10",reg:"Recap hundreds, tens & ones with base-10"},
-    {t:"Week 2 · Rounding",s:"Year 5 Maths · built from your scheme",plan:"Round to the nearest 10, 100 and 1,000",prog:"Round decimals to two places",reg:"Number lines to anchor the nearest 10"},
-    {t:"Week 3 · Division",s:"Year 5 Maths · built from your scheme",plan:"Short division with remainders",prog:"4-digit ÷ 1-digit, interpret remainders",reg:"Sharing with counters & arrays"},
-    {t:"Week 4 · Fractions",s:"Year 5 Maths · built from your scheme",plan:"Compare & order fractions",prog:"Add fractions with different denominators",reg:"Fraction walls & equivalence"},
-    {t:"Week 5 · Add & subtract",s:"Year 5 Maths · built from your scheme",plan:"Column methods with exchanging",prog:"Multi-step word problems",reg:"Place-value counters for exchange"},
-    {t:"Week 6 · Review & assess",s:"Year 5 Maths · built from your scheme",plan:"Retrieval, gap check & assessment",prog:"Reasoning & problem-solving extensions",reg:"Targeted recap on flagged topics"}
-  ];
-  document.querySelectorAll('.week').forEach(w=>w.addEventListener('click',()=>{
-    document.querySelectorAll('.week').forEach(x=>x.classList.remove('active'));
-    w.classList.add('active');const d=weekData[+w.dataset.w];
-    document.getElementById('pk-title').textContent=d.t;
-    document.getElementById('pk-sub').textContent=d.s;
-    document.getElementById('pk-plan').textContent=d.plan;
-    document.getElementById('pk-prog').textContent=d.prog;
-    document.getElementById('pk-reg').textContent=d.reg;
-  }));
+  // scheme-of-work explorer
+  const SOW={
+    lit:{meta:"Year 5 · Narrative: Myths & Legends · built from your scheme", weeks:[
+      {n:"Week 1",s:"Immerse",t:"Immerse in the genre",plan:"Read model myths and pull out the genre's features",prog:"Compare myths from two different cultures",reg:"Audio-supported read with a picture glossary",res:[["Model text","book"],["Video stimulus","video"],["Vocabulary mat","doc"]]},
+      {n:"Week 2",s:"Vocabulary",t:"Vocabulary & figurative language",plan:"Build similes, metaphors and powerful verbs for description",prog:"Craft an extended metaphor",reg:"Word banks and sentence stems",res:[["Vocabulary mat","doc"],["Matching activity","interactive"],["Knowledge organiser","doc"]]},
+      {n:"Week 3",s:"Plan",t:"Plan the narrative",plan:"Sequence a story mountain; plan character and setting",prog:"Weave in a subplot or a flashback",reg:"Pre-filled story-mountain scaffold",res:[["Story-mountain planner","doc"],["WAGOLL model","book"],["Talk-for-writing clip","video"]]},
+      {n:"Week 4",s:"Opening",t:"Write the opening & build-up",plan:"Write the opening and build tension toward the quest",prog:"Vary sentence length for tension",reg:"Sentence starters and a connective bank",res:[["Modelled writing","book"],["Sentence-starter mat","doc"],["Peer-feedback checklist","check"]]},
+      {n:"Week 5",s:"Climax",t:"Write the climax & resolution",plan:"Write the climax and resolve the quest with impact",prog:"Show-not-tell the hero's change",reg:"Cloze paragraph frames",res:[["Writing frame","doc"],["Show-not-tell game","game"],["Self-assessment checklist","check"]]},
+      {n:"Week 6",s:"Publish",t:"Edit, redraft & publish",plan:"Edit against the success criteria, then redraft and publish",prog:"Edit a peer's piece to the success criteria",reg:"Editing checklist with worked examples",res:[["Editing checklist","check"],["Publishing template","doc"],["Read-aloud clip","video"]]}
+    ]},
+    num:{meta:"Year 8 · Solving linear equations · built from your scheme", weeks:[
+      {n:"Week 1",s:"Expressions",t:"Expressions & like terms",plan:"Form and simplify expressions; collect like terms",prog:"Expressions with brackets and indices",reg:"Algebra tiles to model like terms",res:[["Worked examples","doc"],["Mini-whiteboard task","interactive"],["Retrieval starter","check"]]},
+      {n:"Week 2",s:"One-step",t:"One-step equations",plan:"Solve one-step equations using inverse operations",prog:"One-step equations involving fractions",reg:"Function-machine support sheet",res:[["Worked examples","doc"],["Balance-model tool","interactive"],["Practice set","doc"]]},
+      {n:"Week 3",s:"Two-step",t:"Two-step equations",plan:"Solve two-step equations; check by substitution",prog:"Equations with negative solutions",reg:"Step-by-step scaffold with counters",res:[["Modelled examples","doc"],["Mini-whiteboard task","interactive"],["Exit-ticket quiz","check"]]},
+      {n:"Week 4",s:"Both sides",t:"Unknowns on both sides",plan:"Solve equations with unknowns on both sides",prog:"Brackets on both sides",reg:"Bar-model support",res:[["Worked examples","doc"],["Card-sort game","game"],["Practice set","doc"]]},
+      {n:"Week 5",s:"Forming",t:"Forming equations",plan:"Form and solve equations from word and geometry problems",prog:"Form equations from perimeter and angle problems",reg:"Sentence-to-equation translator sheet",res:[["Problem cards","doc"],["Interactive grapher","interactive"],["Reasoning prompts","check"]]},
+      {n:"Week 6",s:"Assess",t:"Assess & problem-solve",plan:"End-of-unit assessment and rich problem-solving",prog:"Multi-step, competition-style problems",reg:"Targeted recap on flagged topics",res:[["Assessment","check"],["Problem-solving game","game"],["Knowledge organiser","doc"]]}
+    ]}
+  };
+  const RES_ICONS={
+    doc:'<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h6M8 17h4"/>',
+    video:'<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
+    interactive:'<path d="M4 4l7 16 2-6 6-2z"/>',
+    game:'<rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 12h2M8 11v2M16 11.5h.01M18.5 13h.01"/>',
+    check:'<path d="M5 13l4 4L19 7"/>',
+    book:'<path d="M12 6C9.6 4.6 6.6 4.6 4 5.6V19c2.6-1 5.6-1 8 .5"/><path d="M12 6c2.4-1.4 5.4-1.4 8-.4V19c-2.6-1-5.6-1-8 .5z"/>'
+  };
+  let curS='lit', curW=0;
+  const weeksEl=document.getElementById('weeks');
+  function renderSOW(){
+    const sc=SOW[curS], w=sc.weeks[curW];
+    weeksEl.innerHTML=sc.weeks.map((x,i)=>`<button class="week${i===curW?' active':''}" data-w="${i}"><small>${x.n}</small><b>${x.s}</b></button>`).join('');
+    document.getElementById('pk-title').textContent=w.n+' · '+w.t;
+    document.getElementById('pk-sub').textContent=sc.meta;
+    document.getElementById('pk-plan').textContent=w.plan;
+    document.getElementById('pk-prog').textContent=w.prog;
+    document.getElementById('pk-reg').textContent=w.reg;
+    document.getElementById('pk-tags').innerHTML=w.res.map(r=>`<span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${RES_ICONS[r[1]]||RES_ICONS.doc}</svg> ${r[0]}</span>`).join('');
+  }
+  document.getElementById('subjTabs').addEventListener('click',e=>{
+    const b=e.target.closest('.subj'); if(!b) return;
+    document.querySelectorAll('.subj').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); curS=b.dataset.s; curW=0; renderSOW();
+  });
+  weeksEl.addEventListener('click',e=>{
+    const b=e.target.closest('.week'); if(!b) return;
+    curW=+b.dataset.w; renderSOW();
+  });
+  renderSOW();
 
   // dynamic toggle
   document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
