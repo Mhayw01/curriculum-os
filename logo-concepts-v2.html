@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Curriculum OS — logo concepts v2 (cos / book)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--purple:#5740F1;--cyan:#3FD0E0;--orange:#FA602F;--ink:#0E1116;--muted:#5A6072;--line:#E7E7EE}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Manrope",sans-serif;color:var(--ink);background:#fafafe;padding:40px 20px;line-height:1.5}
+  .wrap{max-width:1000px;margin:0 auto}
+  h1{font-family:"Space Grotesk";font-size:28px;letter-spacing:-.02em}
+  .sub{color:var(--muted);margin:6px 0 32px;max-width:680px}
+  .concept{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;margin-bottom:24px;box-shadow:0 18px 50px -28px rgba(24,18,80,.3)}
+  .concept h2{font-family:"Space Grotesk";font-size:20px;margin-bottom:4px}
+  .concept p{color:var(--muted);font-size:14px;margin-bottom:22px;max-width:640px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .panel{border-radius:14px;padding:26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .panel.light{background:#fff;border:1px solid var(--line)}
+  .panel.dark{background:var(--ink)}
+  .panel.dark .wm{color:#fff}
+  .lockup{display:flex;align-items:center;gap:13px}
+  .wm{font-family:"Space Grotesk";font-weight:700;font-size:25px;letter-spacing:-.02em}
+  .os{color:var(--purple)}
+  .panel.dark .os{color:#9b8cff}
+  .mark{width:58px;height:58px;flex:none}
+  .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);width:100%;margin-bottom:4px}
+  .panel.dark .label{color:#7c8295}
+  .note{font-size:13px;color:var(--muted);margin-top:8px}
+  @media(max-width:760px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Curriculum OS — logo concepts (v2)</h1>
+  <p class="sub">Built around your idea: a book, with <strong>"cos"</strong> on the cover (Curriculum&nbsp;OS → C·OS → "cos"). All in brand palette, shown as mark + lockup on light and dark. Tell me which to develop (or which bits to mix), and I'll refine and set it across the site.</p>
+
+  <!-- CONCEPT 1: cos book cover -->
+  <div class="concept">
+    <h2>1 · The "cos" book</h2>
+    <p>A clean closed book with "cos" on the cover and an orange bookmark. Simple, ownable, reads instantly as a book and as the name.</p>
+    <div class="row">
+      <div class="panel light"><span class="label">Light</span>
+        <div class="lockup">
+          <svg class="mark" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="c1" x1="20" y1="12" x2="54" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5740F1"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs>
+            <rect x="20" y="12" width="33" height="48" rx="5" fill="url(#c1)"/>
+            <rect x="20" y="12" width="6" height="48" rx="3" fill="#000" opacity=".14"/>
+            <path d="M41 12h9v13l-4.5-3.2L41 25z" fill="#FA602F"/>
+            <text x="37.5" y="50" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="17" fill="#fff" letter-spacing="-0.5">cos</text>
+          </svg>
+          <span class="wm">Curriculum<span class="os"> OS</span></span>
+        </div>
+      </div>
+      <div class="panel dark"><span class="label">Dark</span>
+        <div class="lockup">
+          <svg class="mark" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="c1d" x1="20" y1="12" x2="54" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7b67ff"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs>
+            <rect x="20" y="12" width="33" height="48" rx="5" fill="url(#c1d)"/>
+            <rect x="20" y="12" width="6" height="48" rx="3" fill="#000" opacity=".18"/>
+            <path d="M41 12h9v13l-4.5-3.2L41 25z" fill="#FA602F"/>
+            <text x="37.5" y="50" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="17" fill="#fff" letter-spacing="-0.5">cos</text>
+          </svg>
+          <span class="wm">Curriculum<span class="os"> OS</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 2: C-ring hugging the cos book -->
+  <div class="concept">
+    <h2>2 · The C ring + cos book (heritage)</h2>
+    <p>Keeps the bobldobl "C" ring you liked, now wrapped around the "cos" book, with the spark in the ring's gap. Ties the old brand to the new name.</p>
+    <div class="row">
+      <div class="panel light"><span class="label">Light</span>
+        <div class="lockup">
+          <svg class="mark" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="c2" x1="10" y1="10" x2="62" y2="62" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5740F1"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs>
+            <path d="M50 15A28 28 0 1 0 60 37" fill="none" stroke="url(#c2)" stroke-width="6" stroke-linecap="round"/>
+            <rect x="27" y="24" width="22" height="26" rx="3.5" fill="url(#c2)"/>
+            <rect x="27" y="24" width="4" height="26" rx="2" fill="#000" opacity=".14"/>
+            <text x="39" y="42" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="10.5" fill="#fff" letter-spacing="-0.3">cos</text>
+            <circle cx="56" cy="16" r="5.5" fill="#FA602F"/>
+          </svg>
+          <span class="wm">Curriculum<span class="os"> OS</span></span>
+        </div>
+      </div>
+      <div class="panel dark"><span class="label">Dark</span>
+        <div class="lockup">
+          <svg class="mark" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="c2d" x1="10" y1="10" x2="62" y2="62" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7b67ff"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs>
+            <path d="M50 15A28 28 0 1 0 60 37" fill="none" stroke="url(#c2d)" stroke-width="6" stroke-linecap="round"/>
+            <rect x="27" y="24" width="22" height="26" rx="3.5" fill="url(#c2d)"/>
+            <rect x="27" y="24" width="4" height="26" rx="2" fill="#000" opacity=".18"/>
+            <text x="39" y="42" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="10.5" fill="#fff" letter-spacing="-0.3">cos</text>
+            <circle cx="56" cy="16" r="5.5" fill="#FA602F"/>
+          </svg>
+          <span class="wm">Curriculum<span class="os"> OS</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 3: open book + cos -->
+  <div class="concept">
+    <h2>3 · Open book + cos</h2>
+    <p>An open book (learning, in progress) with "cos" sitting on the page and an orange spark for the AI. Friendlier, more "teaching" than "product".</p>
+    <div class="row">
+      <div class="panel light"><span class="label">Light</span>
+        <div class="lockup">
+          <svg class="mark" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="c3" x1="12" y1="18" x2="60" y2="58" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5740F1"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs>
+            <path d="M36 22C29 17 20 17 13 19a2 2 0 0 0-1.6 2V52a1.7 1.7 0 0 0 2.1 1.6C20 52 28 52 36 56Z" fill="url(#c3)"/>
+            <path d="M36 22c7-5 16-5 23-3a2 2 0 0 1 1.6 2V52a1.7 1.7 0 0 1-2.1 1.6C52 52 44 52 36 56Z" fill="url(#c3)" opacity=".55"/>
+            <text x="24" y="42" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="12" fill="#fff" letter-spacing="-0.3">cos</text>
+            <path d="M57 16l1.7 3.6L62 21l-3.3 1.4L57 26l-1.7-3.6L52 21l3.3-1.4z" fill="#FA602F"/>
+          </svg>
+          <span class="wm">Curriculum<span class="os"> OS</span></span>
+        </div>
+      </div>
+      <div class="panel dark"><span class="label">Dark</span>
+        <div class="lockup">
+          <svg class="mark" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="c3d" x1="12" y1="18" x2="60" y2="58" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7b67ff"/><stop offset="1" stop-color="#3FD0E0"/></linearGradient></defs>
+            <path d="M36 22C29 17 20 17 13 19a2 2 0 0 0-1.6 2V52a1.7 1.7 0 0 0 2.1 1.6C20 52 28 52 36 56Z" fill="url(#c3d)"/>
+            <path d="M36 22c7-5 16-5 23-3a2 2 0 0 1 1.6 2V52a1.7 1.7 0 0 1-2.1 1.6C52 52 44 52 36 56Z" fill="url(#c3d)" opacity=".5"/>
+            <text x="24" y="42" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="12" fill="#fff" letter-spacing="-0.3">cos</text>
+            <path d="M57 16l1.7 3.6L62 21l-3.3 1.4L57 26l-1.7-3.6L52 21l3.3-1.4z" fill="#FA602F"/>
+          </svg>
+          <span class="wm">Curriculum<span class="os"> OS</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">Note: these previews use live web fonts for the "cos" lettering. For the final logo I'll convert the text to outlines so it renders identically everywhere (no font dependency).</p>
+</div>
+</body>
+</html>
