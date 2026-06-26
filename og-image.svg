@@ -1,0 +1,18 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5740F1"/><stop offset="1" stop-color="#3A28C2"/></linearGradient>
+    <radialGradient id="cyan" cx="0.86" cy="0.04" r="0.65"><stop offset="0" stop-color="#3FD0E0" stop-opacity="0.55"/><stop offset="1" stop-color="#3FD0E0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#cyan)"/>
+  <g transform="translate(96,92) scale(1.5)">
+    <path d="M44 12.5A26 26 0 1 0 54 33" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+    <path d="M32 25c-3.6-2.5-8-3-13-1.9a1.4 1.4 0 0 0-1 1.4V40a1.1 1.1 0 0 0 1.4 1.05C24 40 28 40.4 32 43Z" fill="#ffffff"/>
+    <path d="M32 25c3.6-2.5 8-3 13-1.9a1.4 1.4 0 0 1 1 1.4V40a1.1 1.1 0 0 1-1.4 1.05C40 40 36 40.4 32 43Z" fill="#ffffff" opacity=".6"/>
+    <circle cx="50" cy="14" r="5" fill="#FA602F"/>
+  </g>
+  <text x="96" y="312" font-family="'Arial',Helvetica,sans-serif" font-weight="800" font-size="92" fill="#ffffff">Curriculum OS</text>
+  <text x="98" y="384" font-family="'Arial',Helvetica,sans-serif" font-weight="700" font-size="42" fill="#d8d2ff">Your curriculum. Your voice. Your AI.</text>
+  <text x="98" y="476" font-family="'Arial',Helvetica,sans-serif" font-weight="400" font-size="31" fill="#eae7ff">The curriculum operating system that learns your way of teaching.</text>
+  <text x="98" y="560" font-family="'Arial',Helvetica,sans-serif" font-weight="700" font-size="27" fill="#5fe0ee">250+ teachers · second cohort now open</text>
+</svg>
